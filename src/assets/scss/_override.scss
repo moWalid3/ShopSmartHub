@@ -1,0 +1,36 @@
+/* Order */
+@layer reset, primeng;
+
+/* Reset CSS */
+@layer reset {
+  // .p-menubar-button + p-menubarsub {
+  //   display: none;
+  //   @media (min-width: 1200px) {
+  //     display: block;
+  //   }
+  // }
+
+  // .p-menubar-start + .p-menubar-button {
+  //   display: none;
+  // }
+
+  // .p-overlaypanel > div {
+  //   padding: 0;
+  // }
+
+  // p-avatar.online {
+  //   position: relative;
+  //   overflow: auto;
+
+  //   &::after {
+  //     content: "";
+  //     position: absolute;
+  //     height: 15px;
+  //     width: 15px;
+  //     border-radius: 50%;
+  //     background-color: var(--green-500);
+  //     bottom: 0;
+  //     right: 0.5rem;
+  //   }
+  // }
+}

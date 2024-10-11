@@ -1,0 +1,13 @@
+{
+  "en": "English",
+  "ar": "Arabic",
+
+  "header": {
+    "top": {
+      "sale": "Flash sale 20% off",
+      "aboutUs": "About Us",
+      "faqs": "FAQs",
+      "helpAndContact": "Help & Contact"
+    }
+  }
+}

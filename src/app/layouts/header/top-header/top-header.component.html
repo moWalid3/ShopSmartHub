@@ -1,0 +1,30 @@
+<div class="container flex justify-content-between align-items-center">
+  <ul class="list-none p-0 m-0 flex gap-4">
+    <li><a routerLink="/" routerLinkActive="text-primary" [routerLinkActiveOptions]="{exact: true}" class="text-sm block py-3">{{ 'header.top.aboutUs' | translate }}</a></li>
+    <li><a routerLink="/test" routerLinkActive="text-primary" class="text-sm block py-3">{{ 'header.top.faqs' | translate }}</a></li>
+    <li><a routerLink="/f" routerLinkActive="text-primary" class="text-sm block py-3">{{ 'header.top.helpAndContact' | translate }}</a></li>
+  </ul>
+
+  <a routerLink="/products" class="flex align-items-center gap-1 text-red-400">
+    <i class="pi pi-bolt"></i> {{ 'header.top.sale' | translate }} <img src="sale.png" alt="Sale" class="w-2rem ml-1">
+  </a>
+
+  <div class="flex gap-3 align-items-center">
+    <p-dropdown [options]="languageService.availableLanguages" [ngModel]="languageService.currentLanguage()" (onChange)="onSelectLanguage($event)" placeholder="Select a Language">
+      <ng-template pTemplate="selectedItem">
+        <div class="flex align-items-center gap-2">
+          <img [src]="'flags/'+languageService.currentLanguage()+'.png'" class="flag" style="width: 18px" />
+          <div>{{ languageService.currentLanguage() | translate }}</div>
+        </div>
+      </ng-template>
+      <ng-template let-lang pTemplate="item">
+        <div class="flex align-items-center gap-2">
+            <img [src]="'flags/'+lang+'.png'" class="flag" style="width: 18px" />
+            <div>{{ lang | translate }}</div>
+        </div>
+      </ng-template>
+    </p-dropdown>
+
+    <p-button [icon]="themeService.theme() === 'light' ? 'pi pi-sun' : 'pi pi-moon'" (onClick)="themeService.changeTheme()" />
+  </div>
+</div>
