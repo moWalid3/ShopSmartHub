@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Afacad+Flux:wght@100..1000&display=swap');
+.logo {
+  font-family: "Afacad Flux", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0;
+  font-size: 2.3rem;
+}
+
+.icon-link {
+  display: flex;
+  gap: .5rem;
+  align-items: center;
+  > span {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: var(--surface-200);
+    color: var(--surface-600);
+  }
+  &:hover {
+    > span {
+      background-color: var(--surface-300);
+      color: var(--surface-900);
+    }
+  }
+
+  &.icon-link-pink {
+    > span {
+      background-color: var(--pink-100);
+      color: var(--pink-600);
+    }
+    &:hover {
+      > span {
+        background-color: var(--pink-200);
+      }
+    }
+  }
+}
+
+::ng-deep {
+  .ar-auto-complete-input  {
+    input {
+      width: 100%;
+      border-right-color: transparent;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+  .en-auto-complete-input  {
+    input {
+      width: 100%;
+      border-left-color: transparent;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .ar-categories-drop-down {
+    width: 10.5rem;
+    max-width: 100%;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .en-categories-drop-down {
+    width: 10.5rem;
+    max-width: 100%;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}

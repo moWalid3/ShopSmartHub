@@ -8,6 +8,21 @@
       "aboutUs": "من نحن",
       "faqs": "الأسئلة الشائعة",
       "helpAndContact": "المساعدة والتواصل"
+    },
+    "middle": {
+      "searchForProducts": "ابحث عن المنتجات...",
+      "categories": "الفئات",
+      "hotline": "الخط الساخن",
+      "loginYour": "تسجيل الدخول",
+      "account": " إلى حسابك"
+    },
+    "navbar": {
+      "home": "الرئيسية",
+      "products": "المنتجات",
+      "categories": "الفئات",
+      "brands": "العلامات التجارية",
+      "orders": "الطلبات",
+      "yourCart": "سلة التسوق"
     }
   }
 }

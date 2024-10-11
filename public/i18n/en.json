@@ -8,6 +8,21 @@
       "aboutUs": "About Us",
       "faqs": "FAQs",
       "helpAndContact": "Help & Contact"
+    },
+    "middle": {
+      "searchForProducts": "Search for products...",
+      "categories": "Categories",
+      "hotline": "Hotline",
+      "loginYour": "Login Your",
+      "account": "Account"
+    },
+    "navbar": {
+      "home": "Home",
+      "products": "Products",
+      "categories": "Categories",
+      "brands": "Brands",
+      "orders": "Orders",
+      "yourCart": "Your Cart"
     }
   }
 }
