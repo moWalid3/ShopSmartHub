@@ -24,5 +24,14 @@
       "orders": "Orders",
       "yourCart": "Your Cart"
     }
+  },
+
+  "home": {
+    "landing": {
+      "megaSaleMadness": "Mega Sale Madness! Enjoy 50% off",
+      "sparkYourSavings": "Spark Your Savings on Electronics!",
+      "newElectronicsDeals": "New Electronics Deals Added! Explore the latest discounts on cameras, wearables, and smart home devices.",
+      "shopNow": "Shop Now"
+    }
   }
 }
