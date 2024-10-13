@@ -32,6 +32,24 @@
       "sparkYourSavings": "Spark Your Savings on Electronics!",
       "newElectronicsDeals": "New Electronics Deals Added! Explore the latest discounts on cameras, wearables, and smart home devices.",
       "shopNow": "Shop Now"
-    }
+    },
+    "categoriesSection": {
+      "categories": "Categories",
+      "seeAllCategories": "See All Categories",
+      "shopNow": "Shop Now"
+    },
+    "monthSales": {
+      "thisMonthSales": "This Month Sales"
+    },
+    "seeAllDeals": "See All Deals"
+  },
+
+  "product": {
+    "reviews": "Reviews",
+    "sold": "Sold",
+    "inStock": "In Stock",
+    "freeDelivery": "Free Delivery",
+    "favorite": "Favorite",
+    "addToCart": "Add To Cart"
   }
 }

@@ -1,6 +1,11 @@
 <app-landing />
 
 <div class="container">
+  <app-categories-section [featuredCategories]="categoriesService.featuredCategories()" />
+  <app-sales-month-section [monthSalesProducts]="productsService.monthSalesProducts()" />
+</div>
+
+<div class="container">
 
 <div class="p-8 shadow-1 mt-5 border-round">
   <p>

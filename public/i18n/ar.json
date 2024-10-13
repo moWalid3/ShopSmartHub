@@ -32,6 +32,24 @@
       "sparkYourSavings": "اشعل مدخراتك على الإلكترونيات!",
       "newElectronicsDeals": "تمت إضافة عروض إلكترونيات جديدة! اكتشف أحدث الخصومات على الكاميرات والأجهزة القابلة للارتداء وأجهزة المنزل الذكي.",
       "shopNow": "تسوق الآن"
-    }
+    },
+    "categoriesSection": {
+      "categories": "الفئات",
+      "seeAllCategories": "عرض جميع الفئات",
+      "shopNow": "تسوق الآن"
+    },
+    "monthSales": {
+      "thisMonthSales": "مبيعات هذا الشهر"
+    },
+    "seeAllDeals": "عرض جميع العروض"
+  },
+  
+  "product": {
+    "reviews": "التقييمات",
+    "sold": "تم البيع",
+    "inStock": "متوفر في المخزون",
+    "freeDelivery": "توصيل مجاني",
+    "favorite": "المفضلة",
+    "addToCart": "أضف إلى السلة"
   }
 }
