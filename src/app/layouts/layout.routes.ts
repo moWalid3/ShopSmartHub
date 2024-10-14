@@ -14,7 +14,11 @@ export const layoutRoutes: Routes = [
       },
       {
         path: 'test', component: TestmeComponent
-      }
+      },
+      {
+        path: 'products',
+        loadComponent: () => import('../pages/all-products/all-products.component').then(m => m.AllProductsComponent)
+      },
     ]
   }
 ]

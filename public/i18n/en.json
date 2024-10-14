@@ -18,7 +18,6 @@
     },
     "navbar": {
       "home": "Home",
-      "products": "Products",
       "categories": "Categories",
       "brands": "Brands",
       "orders": "Orders",
@@ -30,18 +29,17 @@
     "landing": {
       "megaSaleMadness": "Mega Sale Madness! Enjoy 50% off",
       "sparkYourSavings": "Spark Your Savings on Electronics!",
-      "newElectronicsDeals": "New Electronics Deals Added! Explore the latest discounts on cameras, wearables, and smart home devices.",
-      "shopNow": "Shop Now"
+      "newElectronicsDeals": "New Electronics Deals Added! Explore the latest discounts on cameras, wearables, and smart home devices."
     },
     "categoriesSection": {
       "categories": "Categories",
-      "seeAllCategories": "See All Categories",
-      "shopNow": "Shop Now"
+      "seeAllCategories": "See All Categories"
     },
     "monthSales": {
       "thisMonthSales": "This Month Sales"
     },
-    "seeAllDeals": "See All Deals"
+    "seeAllDeals": "See All Deals",
+    "shopNow": "Shop Now"
   },
 
   "product": {
@@ -51,5 +49,24 @@
     "freeDelivery": "Free Delivery",
     "favorite": "Favorite",
     "addToCart": "Add To Cart"
+  },
+
+  "products": {
+    "showing": "Showing",
+    "of": "Of",
+    "sortingItems": "Sorting Items",
+    "products": "Products"
+  },
+
+  "sort": {
+    "bestSellers": "Best Sellers",
+    "topReviewed": "Top Reviewed",
+    "priceHighToLow": "Price High to Low",
+    "priceLowToHigh": "Price Low to High"
+  },
+
+  "public": {
+    "new": "New",
+    "products": "Products"
   }
 }

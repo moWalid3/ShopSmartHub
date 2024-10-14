@@ -11,7 +11,7 @@
         <div class="content">
           <p class="mt-0 mb-3 text-2xl text-white">{{ category.name }}</p>
           <span class="block mb-3 text-sm text-white">Up to {{ $even ? '20' : '40' }}% off today!</span>
-          <p-button [routerLink]="['/categories', category._id]" dir="ltr" size="small" [label]="'home.categoriesSection.shopNow' | translate" icon="pi pi-arrow-up-right" [rounded]="true" iconPos="right" />
+          <p-button [routerLink]="['/categories', category._id]" dir="ltr" size="small" [label]="'home.shopNow' | translate" icon="pi pi-arrow-up-right" [rounded]="true" iconPos="right" />
         </div>
       </div>
     </div>

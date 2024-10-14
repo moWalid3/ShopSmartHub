@@ -9,6 +9,7 @@ export class ProductsService {
   private http = inject(HttpClient);
   private products$ = signal<IProduct[]>([]);
 
+  allProducts = computed(() => this.products$());
   monthSalesProducts = computed(() => this.products$().slice(30, 38));
 
   constructor() {

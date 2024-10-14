@@ -6,6 +6,7 @@ import { CarouselModule } from 'primeng/carousel';
 import { ButtonModule } from 'primeng/button';
 import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
+import { ProductCardComponent } from "../../../components/product-card/product-card.component";
 
 @Component({
   selector: 'app-sales-month-section',
@@ -16,8 +17,9 @@ import { TooltipModule } from 'primeng/tooltip';
     CarouselModule,
     ButtonModule,
     TagModule,
-    TooltipModule
-  ],
+    TooltipModule,
+    ProductCardComponent
+],
   templateUrl: './sales-month-section.component.html',
   styleUrl: './sales-month-section.component.scss',
 })
