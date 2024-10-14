@@ -11,6 +11,8 @@ export class ProductsService {
 
   allProducts = computed(() => this.products$());
   monthSalesProducts = computed(() => this.products$().slice(30, 38));
+  newInProducts = computed(() => this.products$().filter(prod => +prod.sold.toString().slice(-1) > 6).slice(0, 8))
+  topRatedProducts = computed(() => this.products$().sort((a, b) => b.ratingsAverage - a.ratingsAverage).slice(0, 8));
 
   constructor() {
     this.getProducts();

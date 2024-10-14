@@ -35,11 +35,21 @@
       "categories": "Categories",
       "seeAllCategories": "See All Categories"
     },
-    "monthSales": {
-      "thisMonthSales": "This Month Sales"
+    "offer": {
+      "blackFridaySale": "Black Friday Sale",
+      "computerAndGaming": "Computer & Gaming",
+      "homeElectronics": "Home Electronics",
+      "mobileAccessories": "Mobile Accessories",
+      "upTo70Off": "Up to 70% off!"
+    },
+    "hurry": {
+      "hurryUp": "Hurry Up!",
+      "yearEndingSale": "Year Ending Sale Up To 70% Off!",
+      "exploreExclusiveSale": "Explore our exclusive sale on cutting-edge electronics devices"
     },
     "seeAllDeals": "See All Deals",
-    "shopNow": "Shop Now"
+    "shopNow": "Shop Now",
+    "newIn": "New In"
   },
 
   "product": {
@@ -65,8 +75,42 @@
     "priceLowToHigh": "Price Low to High"
   },
 
+  "footer": {
+    "services": {
+      "fastDelivery": "Fast Delivery",
+      "experienceLightningFastDelivery": "Experience Lightning-Fast Delivery",
+      "securedPayment": "Secured Payment",
+      "shopWithConfidence": "Shop with Confidence",
+      "moneyBack": "Money Back",
+      "moneyBackGuarantee": "100% Money-Back Guarantee",
+      "support247": "24/7 Support",
+      "alwaysHereForYou": "Always Here for You"
+    },
+    "links": {
+      "aboutTheShop": "About The Shop",
+      "aboutUsStatement": "We're not just an online store; we're your gateway to a world of cutting-edge electronics and telemobile devices",
+      "gotQuestionCallUs": "Got Question? Call us 24/7",
+      "popularCategories": "Popular Categories",
+      "letUsHelpYou": "Let Us Help You",
+      "yourOrders": "Your Orders",
+      "yourCart": "Your Cart",
+      "yourWishlist": "Your Wishlist",
+      "getToKnowUs": "Get to Know Us",
+      "aboutUs": "About Us",
+      "faqs": "FAQs",
+      "helpAndContact": "Help & Contact",
+      "subscribeNewsletter": "Subscribe to the newsletter",
+      "enterYourEmail": "Enter your email",
+      "submitNow": "Submit Now",
+      "followUs": "Follow Us:",
+      "downloadApp": "Download App:"
+    }
+  },
+
   "public": {
     "new": "New",
-    "products": "Products"
+    "products": "Products",
+    "thisMonthSales": "This Month Sales",
+    "topRated": "Top Rated"
   }
 }

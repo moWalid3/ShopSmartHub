@@ -1,0 +1,55 @@
+<div class="grid row-gap-3">
+  <div class="col-12 sm:col-6 lg:col-3">
+    <p class="mt-0 mb-3 text-sm font-medium">{{ 'footer.links.aboutTheShop' | translate }}</p>
+    <span class="line-height-3 text-13px pr-4 block mb-4 font-light">{{ 'footer.links.aboutUsStatement' | translate }}</span>
+    <p class="mt-0 mb-2 text-sm font-normal">{{ 'footer.links.gotQuestionCallUs' | translate }}</p>
+    <div class="flex gap-2 text-primary"><i class="pi pi-phone text-2xl"></i> <a class="text-lg font-semibold" href="tel:+201050747532"> 01050747532</a></div>
+  </div>
+
+  <div class="col-12 sm:col-6 lg:col-3">
+    <p class="mt-0 mb-3 text-sm font-medium">{{ 'footer.links.popularCategories' | translate }}</p>
+    <ul class="list-none p-0 flex flex-column gap-2">
+      @for (category of categoriesService.featuredCategories(); track category._id) {
+        <li><a [routerLink]="['/products/category', category._id]" class="text-13px font-normal">{{ category.name }}</a></li>
+      }
+    </ul>
+  </div>
+
+  @for (item of moreLinks; track $index) {
+    <div class="col-12 sm:col-6 lg:col-3">
+      <p class="mt-0 mb-3 text-sm font-medium">{{ item.headTitle | translate }}</p>
+      <ul class="list-none p-0 flex flex-column gap-2">
+        @for (link of item.links; track $index) {
+          <li><a [routerLink]="link.route" class="text-13px font-normal">{{ link.title | translate }}</a></li>
+        }
+      </ul>
+    </div>
+  }
+</div>
+
+<div class="grid align-items-center row-gap-4 pt-5">
+  <div class="col-12 lg:col-4">
+    <p class="mt-0 mb-2 text-sm font-medium">{{ 'footer.links.subscribeNewsletter' | translate }}</p>
+    <div class="flex gap-1 flex-wrap">
+      <input type="text" pInputText [placeholder]="'footer.links.enterYourEmail' | translate" />
+      <p-button [label]="'footer.links.submitNow' | translate" [rounded]="true" />
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-4 flex align-items-center lg:justify-content-center gap-2">
+    <p class="m-0 text-sm font-medium">{{ 'footer.links.followUs' | translate }}</p>
+    <div class="flex gap-1">
+      @for (icon of ['linkedin', 'instagram', 'facebook', 'twitter']; track $index) {
+        <a routerLink="/" class="media-link flex-center surface-200"><i class="pi pi-{{icon}}"></i></a>
+      }
+    </div>
+  </div>
+
+  <div class="col-12 lg:col-4 flex align-items-center lg:justify-content-center gap-2">
+    <p class="m-0 text-sm font-medium">{{ 'footer.links.downloadApp' | translate }}</p>
+    <div class="flex gap-1 flex-wrap lg:flex-nowrap">
+      <a routerLink="/"><img class="w-8rem" src="footer/google_play.png" alt="Google Play"></a>
+      <a routerLink="/"><img class="w-8rem" src="footer/apple_store.png" alt="Apple Store"></a>
+    </div>
+  </div>
+</div>

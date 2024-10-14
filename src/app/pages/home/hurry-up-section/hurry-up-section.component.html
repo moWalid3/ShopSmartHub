@@ -1,0 +1,18 @@
+<div class="box flex lg:justify-content-between justify-content-center flex-wrap lg:flex-nowrap surface-ground border-round-lg shadow-1 border-1 border-200 pr-4">
+  <div class="p-7 pr-2 relative z-1">
+    <span class="text-sm text-pink-400 font-medium">{{ 'home.hurry.hurryUp' | translate }}</span>
+    <p class="mt-1 mb-2 text-2xl font-bold">{{ 'home.hurry.yearEndingSale' | translate }}</p>
+    <span class="font-light block mb-4">{{ 'home.hurry.exploreExclusiveSale' | translate }}</span>
+    <p-button routerLink="/products" dir="ltr" [label]="'home.shopNow' | translate" icon="pi pi-arrow-up-right" [rounded]="true" iconPos="right" />
+  </div>
+
+  <picture class="flex align-items-end">
+    <img src="hurry/iphone.png" alt="IPhones">
+  </picture>
+
+  <img src="hurry/red-circle.png" alt="Red Circle" class="red-circle-img">
+
+  <i class="pi pi-star-fill text-3xl text-pink-400 lg:block hidden"></i>
+  <i class="pi pi-star-fill text-3xl text-yellow-400 lg:block hidden"></i>
+  <i class="pi pi-star-fill text-3xl text-green-400 lg:block hidden"></i>
+</div>

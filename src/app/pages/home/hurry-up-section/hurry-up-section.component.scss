@@ -1,0 +1,31 @@
+:host {
+  display: block;
+  padding-top: 3rem;
+  .box {
+    position: relative;
+    overflow: hidden;
+    .red-circle-img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 9.8rem;
+      transform: translate(50%, -50%);
+    }
+
+    i {
+      position: absolute;
+      &:first-of-type {
+        top: 5%;
+        left: 25%;
+      }
+      &:nth-of-type(2) {
+        top: 30%;
+        left: 45%;
+      }
+      &:last-of-type {
+        top: 70%;
+        left: 25%;
+      }
+    }
+  }
+}

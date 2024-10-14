@@ -35,11 +35,21 @@
       "categories": "الفئات",
       "seeAllCategories": "عرض جميع الفئات"
     },
-    "monthSales": {
-      "thisMonthSales": "مبيعات هذا الشهر"
+    "offer": {
+      "blackFridaySale": "تخفيضات الجمعة السوداء",
+      "computerAndGaming": "الكمبيوتر والألعاب",
+      "homeElectronics": "إلكترونيات المنزل",
+      "mobileAccessories": "ملحقات الهواتف المحمولة",
+      "upTo70Off": "خصم يصل إلى 70%!"
+    },
+    "hurry": {
+      "hurryUp": "اسرع!",
+      "yearEndingSale": "تخفيضات نهاية العام تصل إلى 70%!",
+      "exploreExclusiveSale": "استكشف عروضنا الحصرية على أحدث الأجهزة الإلكترونية"
     },
     "shopNow": "تسوق الآن",
-    "seeAllDeals": "عرض جميع العروض"
+    "seeAllDeals": "عرض جميع العروض",
+    "newIn": "جديد"
   },
 
   "product": {
@@ -65,8 +75,42 @@
     "priceLowToHigh": "السعر من الأقل إلى الأعلى"
   },
 
+  "footer": {
+    "services": {
+      "fastDelivery": "توصيل سريع",
+      "experienceLightningFastDelivery": "تمتع بتوصيل فائق السرعة",
+      "securedPayment": "دفع آمن",
+      "shopWithConfidence": "تسوق بثقة",
+      "moneyBack": "استرداد الأموال",
+      "moneyBackGuarantee": "ضمان استرداد الأموال 100%",
+      "support247": "دعم 24/7",
+      "alwaysHereForYou": "دائمًا هنا من أجلك"
+    },
+    "links": {
+      "aboutTheShop": "حول المتجر",
+      "aboutUsStatement": "نحن لسنا مجرد متجر عبر الإنترنت؛ نحن بوابتك إلى عالم من الأجهزة الإلكترونية والاتصالات المتطورة",
+      "gotQuestionCallUs": "هل لديك سؤال؟ اتصل بنا 24/7",
+      "popularCategories": "الفئات الشائعة",
+      "letUsHelpYou": "دعنا نساعدك",
+      "yourOrders": "طلباتك",
+      "yourCart": "عربتك",
+      "yourWishlist": "قائمة المفضلات",
+      "getToKnowUs": "تعرف علينا",
+      "aboutUs": "حولنا",
+      "faqs": "الأسئلة المتكررة",
+      "helpAndContact": "المساعدة و الاتصال",
+      "subscribeNewsletter": "اشترك في النشرة الإخبارية",
+      "enterYourEmail": "أدخل بريدك الإلكتروني",
+      "submitNow": "أرسل الآن",
+      "followUs": "تابعنا:",
+      "downloadApp": "تحميل التطبيق:"
+    }
+  },
+
   "public": {
     "new": "جديد",
-    "products": "المنتجات"
+    "products": "المنتجات",
+    "thisMonthSales": "مبيعات هذا الشهر",
+    "topRated": "الأعلى تقييماً"
   }
 }

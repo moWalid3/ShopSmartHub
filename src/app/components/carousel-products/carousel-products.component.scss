@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  padding-bottom: 3rem;
+  
+  .tag-absolute {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+  }
+
+  .wishlist-icon {
+    position: absolute;
+    top: 17px;
+    right: 17px;
+  }
+}

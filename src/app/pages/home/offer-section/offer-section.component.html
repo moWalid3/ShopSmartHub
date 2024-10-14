@@ -1,0 +1,14 @@
+<div class="grid pt-5 justify-content-center" dir="ltr">
+  @for (offer of offers; track $index) {
+    <div class="col-12 md:col-6 xl:col-4">
+      <div class="box p-4 bg-{{offer.color}}-100 border-round">
+        <span class="text-sm text-red-400">{{ 'home.offer.blackFridaySale' | translate }}</span>
+        <h6 class="mb-2 mt-1 text-xl text-{{offer.color}}-400">{{ offer.title | translate }}</h6>
+        <span class="text-sm text-primary-900 block mb-2">{{ 'home.offer.upTo70Off' | translate }}</span>
+        <a routerLink="/products" class="main-link">{{ 'home.shopNow' | translate }} <i class="pi pi-arrow-up-right"></i></a>
+
+        <img [src]="offer.img" [alt]="offer.title">
+      </div>
+    </div>
+  }
+</div>

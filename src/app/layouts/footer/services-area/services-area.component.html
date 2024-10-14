@@ -1,0 +1,9 @@
+@for (service of services; track $index) {
+  <div class="col-12 md:col-6 xl:col-3 flex align-items-center gap-2">
+    <img [src]="'footer/'+ service.title.split('.').slice(-1) + '.png'" [alt]="service.title" />
+    <div>
+      <p class="mt-0 mb-1 font-semibold">{{ service.title | translate }}</p>
+      <span class="font-light text-13px">{{ service.description | translate }}</span>
+    </div>
+  </div>
+}
