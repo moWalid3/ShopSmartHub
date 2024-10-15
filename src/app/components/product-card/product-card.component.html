@@ -5,7 +5,7 @@
   }"
 >
   <div class="relative mx-auto" [class.mb-3]="layout() === 'grid'">
-    <a [routerLink]="['/product', product().id]">
+    <a [routerLink]="['/product-details', product().id]">
       <img [src]="product().imageCover" [alt]="product().title" [class]="'border-round ' + (layout() === 'grid' ? 'w-full' : 'w-10rem')" />
     </a>
     @let randomNum = +product().sold.toString().slice(-1);
@@ -14,7 +14,7 @@
 
   <div [class.flex-grow-1]="layout() === 'list'">
     <span class="text-xs text-primary">{{ product().category.name }}</span>
-    <a [routerLink]="['/product', product().id]" class="block w-fit">
+    <a [routerLink]="['/product-details', product().id]" class="block w-fit">
       <p class="mb-2 mt-2 text-sm line-height-3 w-fit">{{ product().title.split(' ').slice(0, 10).join(" ") }}</p>
     </a>
 

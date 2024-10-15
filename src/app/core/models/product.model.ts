@@ -26,6 +26,9 @@ export interface IProduct {
   createdAt: string;
   updatedAt: string;
   id: string;
+  availableColors?: string[],
+  __v?: number,
+  reviews?: any[],
 }
 
 interface Subcategory {

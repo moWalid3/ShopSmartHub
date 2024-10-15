@@ -2,9 +2,9 @@
 
 <div class="container">
   <app-categories-section [featuredCategories]="categoriesService.featuredCategories()" />
-  <app-carousel-products [monthSalesProducts]="productsService.monthSalesProducts()" title="public.thisMonthSales" />
+  <app-carousel-products [products]="productsService.monthSalesProducts()" title="public.thisMonthSales" />
   <app-offer-section />
   <app-new-in-section [newInProducts]="productsService.newInProducts()" />
   <app-hurry-up-section />
-  <app-carousel-products [monthSalesProducts]="productsService.topRatedProducts()" title="public.topRated" />
+  <app-carousel-products [products]="productsService.topRatedProducts()" title="public.topRated" />
 </div>

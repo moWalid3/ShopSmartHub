@@ -1,32 +1,54 @@
-<p-dataView #dv [value]="sortedProducts()" [layout]="layout()" [rows]="12" [paginator]="true" dir="ltr">
-  <ng-template pTemplate="header">
-    <div class="flex justify-content-between flex-wrap gap-3 align-items-center" dir="auto">
-      <span class="flex-grow-1 text-500 font-medium">{{ title() }}</span>
-
-      <div class="flex w-full md:w-auto justify-content-between gap-3">
-        <p-dropdown [showClear]="!!sortKey()" (onClear)="resetSort()" [options]="sortOptions" [(ngModel)]="sortKey" (onChange)="onSortChange($event)" [placeholder]="'products.sortingItems' | translate" />
-        <p-dataViewLayoutOptions dir="ltr" />
-      </div>
-    </div>
-  </ng-template>
-
-  <ng-template pTemplate="list" let-products>
+@if (!productsService.allProducts().length) {
+  @if (layout() === 'list') {
     <div class="grid grid-nogutter">
-      @for (product of products; track product._id) {
+      @for (product of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
         <div class="col-12">
-          <app-product-card [product]="product" layout="list" />
+          <app-skeleton-product-card layout="list" />
         </div>
       }
     </div>
-  </ng-template>
-
-  <ng-template let-product pTemplate="grid" let-products>
+  }@else {
     <div class="grid grid-nogutter">
-      @for (product of products; track product._id) {
+      @for (product of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
         <div class="col-12 sm:col-6 lg:col-4 xl:col-3 p-2">
-          <app-product-card [product]="product" />
+          <app-skeleton-product-card />
         </div>
       }
     </div>
-  </ng-template>
-</p-dataView>
+  }
+}@else if(!sortedProducts().length) {
+  <p-messages [value]="[{ severity: 'info', detail: title() | translate }]" [enableService]="false" [closable]="false"  />
+}@else {
+  <p-dataView #dv [value]="sortedProducts()" [layout]="layout()" [rows]="12" [paginator]="true" dir="ltr">
+    <ng-template pTemplate="header">
+      <div class="flex justify-content-between flex-wrap gap-3 align-items-center" dir="auto">
+        <span class="flex-grow-1 text-500 font-medium">{{ title() }}</span>
+
+        <div class="flex w-full md:w-auto justify-content-between gap-3">
+          <p-dropdown [showClear]="!!sortKey()" (onClear)="resetSort()" [options]="sortOptions" [(ngModel)]="sortKey" (onChange)="onSortChange($event)" [placeholder]="'products.sortingItems' | translate" />
+          <p-dataViewLayoutOptions dir="ltr" />
+        </div>
+      </div>
+    </ng-template>
+
+    <ng-template pTemplate="list" let-products>
+      <div class="grid grid-nogutter">
+        @for (product of products; track product._id) {
+          <div class="col-12">
+            <app-product-card [product]="product" layout="list" />
+          </div>
+        }
+      </div>
+    </ng-template>
+
+    <ng-template let-product pTemplate="grid" let-products>
+      <div class="grid grid-nogutter">
+        @for (product of products; track product._id) {
+          <div class="col-12 sm:col-6 lg:col-4 xl:col-3 p-2">
+            <app-product-card [product]="product" />
+          </div>
+        }
+      </div>
+    </ng-template>
+  </p-dataView>
+}

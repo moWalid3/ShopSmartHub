@@ -8,11 +8,13 @@ import { ProductCardComponent } from "../../../components/product-card/product-c
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { IProduct } from '../../../core/models/product.model';
+import { SkeletonProductCardComponent } from "../../../components/skeleton-product-card/skeleton-product-card.component";
+import { MessagesModule } from 'primeng/messages';
 
 @Component({
   selector: 'app-products-view',
   standalone: true,
-  imports: [ DataViewModule, TranslateModule, DropdownModule, FormsModule, ProductCardComponent],
+  imports: [DataViewModule, TranslateModule, DropdownModule, FormsModule, ProductCardComponent, SkeletonProductCardComponent, MessagesModule],
   templateUrl: './products-view.component.html',
   styleUrl: './products-view.component.scss',
 })
@@ -20,7 +22,7 @@ export class ProductsViewComponent implements OnInit {
   private activatedRoute = inject(ActivatedRoute);
   private translate = inject(TranslateService);
   private destroyRef = inject(DestroyRef);
-  private productsService = inject(ProductsService);
+  productsService = inject(ProductsService);
 
   categoryId: null | string = null;
   brandId: null | string = null;
@@ -52,7 +54,6 @@ export class ProductsViewComponent implements OnInit {
     this.initializeProducts();
   }
 
-
   private initializeProducts() {
     this.activatedRoute.paramMap.subscribe(params => {
       this.categoryId = params.get('category');
@@ -60,11 +61,11 @@ export class ProductsViewComponent implements OnInit {
 
       if(this.categoryId) {
         this.products = computed( () => this.productsService.getCategoryProducts(this.categoryId!)());
-        this.title = computed( () => this.products().length ? this.products()[0].category.name + ' Products' : 'No products available');
+        this.title = computed( () => this.products().length ? this.products()[0].category.name + ' Products' : 'public.noProductsAvailable');
         this.sortedProducts = this.handleSortedProducts();
       } else if (this.brandId) {
         this.products = computed( () => this.productsService.getBrandProducts(this.brandId!)());
-        this.title = computed( () => this.products().length ? this.products()[0].brand.name + ' Products' : 'No products available');
+        this.title = computed( () => this.products().length ? this.products()[0].brand.name + ' Products' : 'public.noProductsAvailable');
       } else {
         this.products = computed( () => this.productsService.allProducts());
         this.title = computed( () => 'All products')

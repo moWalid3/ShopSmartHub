@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { MenuItem } from 'primeng/api';
 import { ProductsViewComponent } from "./products-view/products-view.component";
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -15,5 +14,4 @@ import { TranslateModule } from '@ngx-translate/core';
   }
 })
 export class AllProductsComponent {
-  home: MenuItem = {icon: 'pi pi-home', routerLink: '/'};
 }

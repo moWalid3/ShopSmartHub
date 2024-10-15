@@ -34,6 +34,10 @@ export const layoutRoutes: Routes = [
       {
         path: 'brands',
         loadComponent: () => import('../pages/all-brands/all-brands.component').then(m => m.AllBrandsComponent)
+      },
+      {
+        path: 'product-details/:id',
+        loadComponent: () => import('../pages/product-details/product-details.component').then(m => m.ProductDetailsComponent)
       }
     ]
   }

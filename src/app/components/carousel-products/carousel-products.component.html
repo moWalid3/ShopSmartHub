@@ -3,15 +3,30 @@
   <a routerLink="/products" class="main-link">{{ 'home.seeAllDeals' | translate }} <i class="pi pi-arrow-up-right"></i></a>
 </div>
 
-<p-carousel
-  [value]="monthSalesProducts()"
-  [numVisible]="4"
-  [numScroll]="4"
-  [circular]="false"
-  [responsiveOptions]="responsiveOptions"
-  dir="ltr"
->
-  <ng-template let-product let-index pTemplate="item">
-    <app-product-card [product]="product" />
-  </ng-template>
-</p-carousel>
+@if (!products().length) {
+  <p-carousel
+    [value]="[1, 2, 3, 4, 5, 6, 7, 8]"
+    [numVisible]="4"
+    [numScroll]="4"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+    dir="ltr"
+  >
+    <ng-template let-product let-index pTemplate="item">
+      <app-skeleton-product-card />
+    </ng-template>
+  </p-carousel>
+}@else {
+  <p-carousel
+    [value]="products()"
+    [numVisible]="4"
+    [numScroll]="4"
+    [circular]="false"
+    [responsiveOptions]="responsiveOptions"
+    dir="ltr"
+  >
+    <ng-template let-product let-index pTemplate="item">
+      <app-product-card [product]="product" />
+    </ng-template>
+  </p-carousel>
+}

@@ -7,6 +7,7 @@ import { TagModule } from 'primeng/tag';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProductCardComponent } from '../product-card/product-card.component';
 import { IProduct } from '../../core/models/product.model';
+import { SkeletonProductCardComponent } from "../skeleton-product-card/skeleton-product-card.component";
 
 @Component({
   selector: 'app-carousel-products',
@@ -18,13 +19,14 @@ import { IProduct } from '../../core/models/product.model';
     ButtonModule,
     TagModule,
     TooltipModule,
-    ProductCardComponent
+    ProductCardComponent,
+    SkeletonProductCardComponent
 ],
   templateUrl: './carousel-products.component.html',
   styleUrl: './carousel-products.component.scss'
 })
 export class CarouselProductsComponent {
-  monthSalesProducts = input.required<IProduct[]>();
+  products = input.required<IProduct[]>();
   title = input.required<string>();
 
   responsiveOptions = [

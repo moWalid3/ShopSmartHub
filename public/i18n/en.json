@@ -111,6 +111,9 @@
     "topRated": "Top Rated",
     "upTo30OffToday": "Up to 30% off today!",
     "categories": "Categories",
-    "brands": "Brands"
+    "brands": "Brands",
+    "brand": "Brand",
+    "category": "Category",
+    "noProductsAvailable": "No products available"
   }
 }
