@@ -11,15 +11,12 @@
     },
     "middle": {
       "searchForProducts": "Search for products...",
-      "categories": "Categories",
       "hotline": "Hotline",
       "loginYour": "Login Your",
       "account": "Account"
     },
     "navbar": {
       "home": "Home",
-      "categories": "Categories",
-      "brands": "Brands",
       "orders": "Orders",
       "yourCart": "Your Cart"
     }
@@ -32,7 +29,6 @@
       "newElectronicsDeals": "New Electronics Deals Added! Explore the latest discounts on cameras, wearables, and smart home devices."
     },
     "categoriesSection": {
-      "categories": "Categories",
       "seeAllCategories": "See All Categories"
     },
     "offer": {
@@ -104,13 +100,17 @@
       "submitNow": "Submit Now",
       "followUs": "Follow Us:",
       "downloadApp": "Download App:"
-    }
+    },
+    "allRightsReservedBy": "© SSH. All Rights Reserved by "
   },
 
   "public": {
     "new": "New",
     "products": "Products",
     "thisMonthSales": "This Month Sales",
-    "topRated": "Top Rated"
+    "topRated": "Top Rated",
+    "upTo30OffToday": "Up to 30% off today!",
+    "categories": "Categories",
+    "brands": "Brands"
   }
 }

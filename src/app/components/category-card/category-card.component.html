@@ -1,0 +1,8 @@
+<div class="border-1 border-200 border-round shadow-1 category-box tra-2">
+  <img [src]="category().image" [alt]="category().name">
+  <div class="content">
+    <p class="mt-0 mb-3 text-2xl text-white">{{ category().name }}</p>
+    <span class="block mb-3 text-sm text-white">{{ 'public.upTo30OffToday' | translate }}</span>
+    <p-button [routerLink]="['/products/category', category()._id]" dir="ltr" size="small" [label]="'home.shopNow' | translate" icon="pi pi-arrow-up-right" [rounded]="true" iconPos="right" />
+  </div>
+</div>

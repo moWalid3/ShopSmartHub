@@ -11,10 +11,9 @@ import { TranslateModule } from '@ngx-translate/core';
   templateUrl: './all-products.component.html',
   styleUrl: './all-products.component.scss',
   host: {
-    'class': 'block container'
+    'class': 'block container pb-5'
   }
 })
 export class AllProductsComponent {
-  // items: MenuItem[] = [{label: 'Products'}];
   home: MenuItem = {icon: 'pi pi-home', routerLink: '/'};
 }

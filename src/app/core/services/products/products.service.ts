@@ -18,6 +18,9 @@ export class ProductsService {
     this.getProducts();
   }
 
+  getCategoryProducts = (categoryId: string) => computed(() => this.products$().filter(prod => prod.category._id === categoryId))
+  getBrandProducts = (brandId: string) => computed(() => this.products$().filter(prod => prod.brand._id === brandId))
+
   private getProducts(pageNum = 1) {
     this.http.get<IProductsRes>(`https://ecommerce.routemisr.com/api/v1/products?page=${pageNum}`).subscribe(
       res => {

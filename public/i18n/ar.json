@@ -11,15 +11,12 @@
     },
     "middle": {
       "searchForProducts": "ابحث عن المنتجات...",
-      "categories": "الفئات",
       "hotline": "الخط الساخن",
       "loginYour": "تسجيل الدخول",
       "account": " إلى حسابك"
     },
     "navbar": {
       "home": "الرئيسية",
-      "categories": "الفئات",
-      "brands": "العلامات التجارية",
       "orders": "الطلبات",
       "yourCart": "سلة التسوق"
     }
@@ -32,7 +29,6 @@
       "newElectronicsDeals": "تمت إضافة عروض إلكترونيات جديدة! اكتشف أحدث الخصومات على الكاميرات والأجهزة القابلة للارتداء وأجهزة المنزل الذكي."
     },
     "categoriesSection": {
-      "categories": "الفئات",
       "seeAllCategories": "عرض جميع الفئات"
     },
     "offer": {
@@ -104,13 +100,17 @@
       "submitNow": "أرسل الآن",
       "followUs": "تابعنا:",
       "downloadApp": "تحميل التطبيق:"
-    }
+    },
+    "allRightsReservedBy": "© SSH. جميع الحقوق محفوظة لـ "
   },
 
   "public": {
     "new": "جديد",
     "products": "المنتجات",
     "thisMonthSales": "مبيعات هذا الشهر",
-    "topRated": "الأعلى تقييماً"
+    "topRated": "الأعلى تقييماً",
+    "upTo30OffToday": "خصم يصل إلى 30% اليوم!",
+    "categories": "الفئات",
+    "brands": "العلامات التجارية"
   }
 }

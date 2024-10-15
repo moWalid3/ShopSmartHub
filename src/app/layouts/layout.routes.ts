@@ -19,6 +19,22 @@ export const layoutRoutes: Routes = [
         path: 'products',
         loadComponent: () => import('../pages/all-products/all-products.component').then(m => m.AllProductsComponent)
       },
+      {
+        path: 'products/category/:category',
+        loadComponent: () => import('../pages/all-products/all-products.component').then(m => m.AllProductsComponent)
+      },
+      {
+        path: 'products/brand/:brand',
+        loadComponent: () => import('../pages/all-products/all-products.component').then(m => m.AllProductsComponent)
+      },
+      {
+        path: 'categories',
+        loadComponent: () => import('../pages/all-categories/all-categories.component').then(m => m.AllCategoriesComponent)
+      },
+      {
+        path: 'brands',
+        loadComponent: () => import('../pages/all-brands/all-brands.component').then(m => m.AllBrandsComponent)
+      }
     ]
   }
 ]

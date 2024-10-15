@@ -1,4 +1,4 @@
-import { Component, computed, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, DestroyRef, inject, OnInit, Signal, signal } from '@angular/core';
 import { DataViewModule } from 'primeng/dataview';
 import { ProductsService } from '../../../core/services/products/products.service';
 import { LangChangeEvent, TranslateModule, TranslateService } from '@ngx-translate/core';
@@ -6,6 +6,8 @@ import { DropdownModule } from 'primeng/dropdown';
 import { SelectItem } from 'primeng/api';
 import { ProductCardComponent } from "../../../components/product-card/product-card.component";
 import { FormsModule } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { IProduct } from '../../../core/models/product.model';
 
 @Component({
   selector: 'app-products-view',
@@ -15,16 +17,20 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './products-view.component.scss',
 })
 export class ProductsViewComponent implements OnInit {
+  private activatedRoute = inject(ActivatedRoute);
   private translate = inject(TranslateService);
   private destroyRef = inject(DestroyRef);
+  private productsService = inject(ProductsService);
 
-  productsService = inject(ProductsService);
+  categoryId: null | string = null;
+  brandId: null | string = null;
   layout = signal<'list' | 'grid'>('grid');
-  products = computed(() => this.productsService.allProducts());
+  products:  Signal<IProduct[]> = signal([]);
   sortKey = signal<string>('');
   sortOptions: SelectItem[] = [];
+  title: Signal<string> = signal('No products available');
 
-  sortedProducts = computed(() => {
+  private handleSortedProducts = () => computed(() => {
     const currentProducts = this.products();
     const currentSortKey = this.sortKey();
 
@@ -39,8 +45,31 @@ export class ProductsViewComponent implements OnInit {
     });
   });
 
+  sortedProducts: Signal<IProduct[]> = this.handleSortedProducts();
+
   ngOnInit(): void {
     this.initializeSortOptions();
+    this.initializeProducts();
+  }
+
+
+  private initializeProducts() {
+    this.activatedRoute.paramMap.subscribe(params => {
+      this.categoryId = params.get('category');
+      this.brandId = params.get('brand');
+
+      if(this.categoryId) {
+        this.products = computed( () => this.productsService.getCategoryProducts(this.categoryId!)());
+        this.title = computed( () => this.products().length ? this.products()[0].category.name + ' Products' : 'No products available');
+        this.sortedProducts = this.handleSortedProducts();
+      } else if (this.brandId) {
+        this.products = computed( () => this.productsService.getBrandProducts(this.brandId!)());
+        this.title = computed( () => this.products().length ? this.products()[0].brand.name + ' Products' : 'No products available');
+      } else {
+        this.products = computed( () => this.productsService.allProducts());
+        this.title = computed( () => 'All products')
+      }
+    })
   }
 
   private initializeSortOptions() {

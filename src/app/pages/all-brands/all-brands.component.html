@@ -1,0 +1,12 @@
+<p-breadcrumb class="max-w-full mb-5" [model]="[{label: 'public.brands' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+<div class="grid py-5">
+  @for (brand of brandsService.allBrands(); track brand._id) {
+    <div class="col-6 sm:col-4 md:col-3 lg:col-2">
+      <a [routerLink]="['/products/brand', brand._id]" class="block border-1 border-primary overflow-hidden border-round ">
+        <img [src]="brand.image" [alt]="brand.name" class="w-full">
+        <span class="block px-2 pb-4 pt-1 text-primary text-center font-semibold">{{ brand.name }}</span>
+      </a>
+    </div>
+  }
+</div>

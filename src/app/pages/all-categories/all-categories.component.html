@@ -1,0 +1,11 @@
+<p-breadcrumb class="max-w-full mb-5" [model]="[{label: 'public.categories' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+<div class="grid py-5">
+  @for (category of categoriesService.allCategories(); track category._id) {
+    <div class="col-12 sm:col-6 lg:col-3">
+
+      <app-category-card [category]="category" />
+
+    </div>
+  }
+</div>
