@@ -3,6 +3,7 @@ import { RouterOutlet } from '@angular/router';
 import { PrimeNGConfig } from 'primeng/api';
 import { LanguageService } from './core/services/language/language.service';
 import { ScrollToTopService } from './core/services/scrollToTop/scroll-to-top.service';
+import { AuthService } from './core/services/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -18,9 +19,11 @@ export class AppComponent {
   languageService = inject(LanguageService);
   private primengConfig = inject(PrimeNGConfig);
   private scrollToTopService = inject(ScrollToTopService);
-  
+  private authService = inject(AuthService);
+
   ngOnInit() {
     this.primengConfig.ripple = true;
     this.scrollToTopService.setupScrollToTop();
+    this.authService.checkAuthenticated();
   }
 }

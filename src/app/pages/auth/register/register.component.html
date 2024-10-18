@@ -1,0 +1,38 @@
+<div class="surface-card p-4 shadow-2 border-1 border-200 border-round my-2 mx-auto">
+  <div class="text-center mb-5">
+    <img src="logo.png" alt="Image" height="50" class="mb-3">
+    <div class="text-900 text-3xl font-medium mb-3">{{ 'auth.signUpWithYourEmail' | translate }}</div>
+    <p class="m-0 flex justify-content-center gap-2 flex-wrap text-600 font-medium line-height-3">{{ 'auth.alreadyHaveAccount' | translate }}
+      <a routerLink="/login" class="font-medium text-primary">{{ 'auth.signIn' | translate }}</a>
+    </p>
+  </div>
+
+  @if (errorMsg()) {
+    <p-messages [value]="[{ severity: 'error', detail: errorMsg() }]" [enableService]="false" dir="ltr" />
+  }
+
+  <form [formGroup]="registerForm" (ngSubmit)="onLogin()">
+
+    <app-validation-field [fieldControl]="registerForm.controls.name" [validations]="[{name: 'required', msg: 'auth.nameIsRequired'}]" [label]="{value: 'auth.name', for: 'register-name'}">
+      <input formControlName="name" id="register-name" type="text" class="w-full ng-dirty mb-1" [class.ng-invalid]="registerForm.controls.name.invalid && registerForm.controls.name.touched" [placeholder]="'auth.name' | translate" pInputText />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="registerForm.controls.email" [validations]="[{name: 'required', msg: 'auth.emailIsRequired'}, {name: 'pattern', msg: 'auth.enterValidEmail'}]" [label]="{value: 'auth.email', for: 'register-email'}">
+      <input formControlName="email" id="register-email" type="text" class="w-full ng-dirty mb-1" [class.ng-invalid]="registerForm.controls.email.invalid && registerForm.controls.email.touched" [placeholder]="'auth.emailAddress' | translate" pInputText />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="registerForm.controls.password" [validations]="[{name: 'required', msg: 'auth.passwordIsRequired'}, {name: 'pattern', msg: 'auth.passwordMustUppercase'}]" [label]="{value: 'auth.password', for: 'register-password'}">
+      <p-password inputId="register-password" styleClass="w-full" formControlName="password" [feedback]="false" [toggleMask]="true" [placeholder]="'auth.password' | translate" class="w-full ng-dirty mb-1" [class.ng-invalid]="registerForm.controls.password.invalid && registerForm.controls.password.touched" />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="registerForm.controls.rePassword" [validations]="[{name: 'required', msg: 'auth.rePasswordIsRequired'}, {name: 'pattern', msg: 'auth.rePasswordMustUppercase'}]" [label]="{value: 'auth.rePassword', for: 'register-rePassword'}">
+      <p-password inputId="register-rePassword" styleClass="w-full" formControlName="rePassword" [feedback]="false" [toggleMask]="true" [placeholder]="'auth.rePassword' | translate" class="w-full ng-dirty mb-1" [class.ng-invalid]="registerForm.controls.rePassword.invalid && registerForm.controls.rePassword.touched" />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="registerForm.controls.phone" [validations]="[{name: 'required', msg: 'auth.phoneIsRequired'}, {name: 'pattern', msg: 'auth.enterValidEgyptianPhone'}]" [label]="{value: 'auth.phone', for: 'register-phone'}">
+      <input formControlName="phone" id="register-phone" type="tel" class="w-full ng-dirty mb-1" [class.ng-invalid]="registerForm.controls.phone.invalid && registerForm.controls.phone.touched" placeholder="01xxxxxxxxx" pInputText />
+    </app-validation-field>
+
+    <p-button type="submit" [disabled]="registerForm.invalid" [loading]="loading()" [label]="'auth.signUp' | translate" icon="pi pi-user" styleClass="w-full" />
+  </form>
+</div>

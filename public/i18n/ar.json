@@ -104,6 +104,34 @@
     "allRightsReservedBy": "© SSH. جميع الحقوق محفوظة لـ "
   },
 
+  "auth": {
+    "loginWithYourEmail": "تسجيل الدخول باستخدام بريدك الإلكتروني",
+    "noAccount": "ليس لديك حساب؟",
+    "createNewAccount": "إنشاء حساب جديد",
+    "email": "البريد الإلكتروني",
+    "emailAddress": "عنوان البريد الإلكتروني",
+    "emailIsRequired": "البريد الإلكتروني مطلوب.",
+    "enterValidEmail": "أدخل بريد إلكتروني صالح.",
+    "password": "كلمة المرور",
+    "passwordIsRequired": "كلمة المرور مطلوبة.",
+    "passwordMustUppercase": "يجب أن تبدأ كلمة المرور بحرف كبير وأن تكون على الأقل 6 أحرف.",
+    "rememberMe": "تذكرني",
+    "forgotPassword": "هل نسيت كلمة المرور؟",
+    "signIn": "تسجيل الدخول",
+    "submit": "إرسال",
+    "signUpWithYourEmail": "سجل باستخدام بريدك الإلكتروني",
+    "alreadyHaveAccount": "هل لديك حساب بالفعل؟",
+    "signUp": "إنشاء حساب",
+    "name": "الاسم",
+    "nameIsRequired": "الاسم مطلوب.",
+    "rePassword": "إعادة كلمة المرور",
+    "rePasswordIsRequired": "إعادة كلمة المرور مطلوبة.",
+    "rePasswordMustUppercase": "يجب أن تبدأ إعادة كلمة المرور بحرف كبير وأن تكون على الأقل 6 أحرف.",
+    "phone": "الهاتف",
+    "phoneIsRequired": "رقم الهاتف مطلوب.",
+    "enterValidEgyptianPhone": "أدخل رقم هاتف مصري صالح."
+  },
+
   "public": {
     "new": "جديد",
     "products": "المنتجات",

@@ -1,0 +1,9 @@
+<label [for]="label().for" class="block text-900 font-medium mb-2">{{ label().value | translate }}</label>
+
+<ng-content />
+
+@for (validator of validations(); track $index) {
+  @if (fieldControl().hasError(validator.name) && fieldControl().touched) {
+    <small class="text-red-500 text-13px">{{ validator.msg | translate }}</small>
+  }
+}

@@ -104,6 +104,34 @@
     "allRightsReservedBy": "© SSH. All Rights Reserved by "
   },
 
+  "auth": {
+    "loginWithYourEmail": "Login with your email",
+    "noAccount": "Don't have an account?",
+    "createNewAccount": "Create new account",
+    "email": "Email",
+    "emailAddress": "Email address",
+    "emailIsRequired": "Email is required.",
+    "enterValidEmail": "Enter a valid email.",
+    "password": "Password",
+    "passwordIsRequired": "Password is required.",
+    "passwordMustUppercase": "Password must start with an uppercase and be at least 6 characters.",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "signIn": "Sign In",
+    "submit": "Submit",
+    "signUpWithYourEmail": "Sign up with your email",
+    "alreadyHaveAccount": "Already have an account?",
+    "signUp": "Sign Up",
+    "name": "Name",
+    "nameIsRequired": "Name is required.",
+    "rePassword": "RePassword",
+    "rePasswordIsRequired": "RePassword is required.",
+    "rePasswordMustUppercase": "RePassword must start with an uppercase and be at least 6 characters.",
+    "phone": "Phone",
+    "phoneIsRequired": "Phone is required.",
+    "enterValidEgyptianPhone": "Enter a valid Egyptian phone."
+  },
+
   "public": {
     "new": "New",
     "products": "Products",
