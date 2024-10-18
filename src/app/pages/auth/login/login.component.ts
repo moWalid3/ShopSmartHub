@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
@@ -9,6 +9,7 @@ import { PasswordModule } from 'primeng/password';
 import { AuthService } from '../../../core/services/auth/auth.service';
 import { MessagesModule } from 'primeng/messages';
 import { ValidationFieldComponent } from "../../../components/validation-field/validation-field.component";
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-login',
@@ -31,6 +32,8 @@ import { ValidationFieldComponent } from "../../../components/validation-field/v
   },
 })
 export class LoginComponent {
+  private translate = inject(TranslateService);
+  private messageService = inject(MessageService);
   private authService = inject(AuthService);
   loading = signal(false);
   errorMsg = signal('');
@@ -43,7 +46,6 @@ export class LoginComponent {
   onLogin() {
     if(this.loginForm.valid) {
       this.loading.set(true);
-      console.log(this.loginForm.value);
 
       const data = {
         email: this.loginForm.value.email!,
@@ -53,15 +55,11 @@ export class LoginComponent {
       this.authService.login(data).subscribe({
         next: res => {
           this.loading.set(false);
-          
-
-
+          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.welcomeBackLoggedIn')})
         },
         error: err => {
-          console.log(err);
           this.loading.set(false);
           this.errorMsg.set(err.error.message);
-
         }
       })
     }

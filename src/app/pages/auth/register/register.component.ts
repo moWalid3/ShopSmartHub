@@ -1,7 +1,7 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
 import { InputTextModule } from 'primeng/inputtext';
@@ -11,6 +11,7 @@ import { MessagesModule } from 'primeng/messages';
 import { ValidationFieldComponent } from "../../../components/validation-field/validation-field.component";
 import { InputMaskModule } from 'primeng/inputmask';
 import { IUser } from '../../../core/models/auth.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-register',
@@ -34,6 +35,8 @@ import { IUser } from '../../../core/models/auth.model';
   },
 })
 export class RegisterComponent {
+  private translate = inject(TranslateService);
+  private messageService = inject(MessageService);
   private authService = inject(AuthService);
   loading = signal(false);
   errorMsg = signal('');
@@ -44,12 +47,22 @@ export class RegisterComponent {
     password: new FormControl<string>('', [Validators.required, Validators.pattern(/^[A-Z].{5,}/)]),
     rePassword: new FormControl<string>('', [Validators.required, Validators.pattern(/^[A-Z].{5,}/)]),
     phone: new FormControl<string>('', [Validators.required, Validators.pattern(/^01[0125][0-9]{8}$/)])
-  });
+  }, {validators: this.matchPasswords});
 
-  onLogin() {
+  matchPasswords(control: AbstractControl) {
+    const password = control.get('password');
+    const rePassword = control.get('rePassword');
+    if(password?.value === rePassword?.value) {
+      return null;
+    } else {
+      rePassword?.setErrors({matchPasswords: 'Passwords do not match.'})
+      return {matchPasswords: 'Passwords do not match.'};
+    }
+  }
+
+  onRegister() {
     if(this.registerForm.valid) {
       this.loading.set(true);
-      console.log(this.registerForm.value);
 
       const user: IUser = {
         name: this.registerForm.value.name!,
@@ -61,16 +74,12 @@ export class RegisterComponent {
 
       this.authService.register(user).subscribe({
         next: res => {
-          console.log(res);
           this.loading.set(false);
-          console.log(this.authService.isAuthenticated());
-          
+          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.accountCreationSuccessful')})
         },
         error: err => {
-          console.log(err);
           this.loading.set(false);
           this.errorMsg.set(err.error.message);
-
         }
       })
     }

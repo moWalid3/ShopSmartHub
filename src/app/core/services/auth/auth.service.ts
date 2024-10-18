@@ -2,30 +2,28 @@ import { HttpClient } from '@angular/common/http';
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { ISuccessAuth, IUser } from '../../models/auth.model';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private router = inject(Router);
   private http = inject(HttpClient);
   private userToken = signal('');
   isAuthenticated = computed(() => !!this.userToken());
 
   login(data: {email: string, password: string}) {
     return this.http.post<ISuccessAuth>('https://ecommerce.routemisr.com/api/v1/auth/signin', data).pipe(
-      tap(res => {
-        this.userToken.set(res.token);
-        localStorage.setItem('SSHToken', this.userToken());
-      })
+      tap(res => this.successAuth(res.token))
     )
   }
 
   register(user: IUser) {
     return this.http.post<ISuccessAuth>('https://ecommerce.routemisr.com/api/v1/auth/signup', user).pipe(
-      tap(res => {
-        this.userToken.set(res.token);
-        localStorage.setItem('SSHToken', this.userToken());
-      })
+      tap(res => this.successAuth(res.token))
     );
   }
 
@@ -37,6 +35,12 @@ export class AuthService {
     return this.http.post('https://ecommerce.routemisr.com/api/v1/auth/verifyResetCode', {resetCode})
   }
 
+  resetPassword(email: string, newPassword: string) {
+    return this.http.put<{token: string}>('https://ecommerce.routemisr.com/api/v1/auth/resetPassword', {email, newPassword}).pipe(
+      tap(res => this.successAuth(res.token))
+    )
+  }
+
   logout() {
     localStorage.removeItem('SSHToken');
     this.userToken.set('');
@@ -45,5 +49,11 @@ export class AuthService {
   checkAuthenticated() {
     if(localStorage.getItem('SSHToken'))
       this.userToken.set(localStorage.getItem('SSHToken')!);
+  }
+
+  private successAuth(token: string) {
+    this.userToken.set(token);
+    localStorage.setItem('SSHToken', this.userToken());
+    this.router.navigate(['/']);
   }
 }

@@ -127,9 +127,19 @@
     "rePassword": "RePassword",
     "rePasswordIsRequired": "RePassword is required.",
     "rePasswordMustUppercase": "RePassword must start with an uppercase and be at least 6 characters.",
+    "passwordsDoNotMatch": "Passwords do not match.",
     "phone": "Phone",
     "phoneIsRequired": "Phone is required.",
-    "enterValidEgyptianPhone": "Enter a valid Egyptian phone."
+    "resetPasswordEnterEmail": "To reset your password, please enter your email address",
+    "enterValidEgyptianPhone": "Enter a valid Egyptian phone.",
+    "resetCodeSent": "Reset code sent to your email",
+    "verifyResetCode": "Verify Reset Code",
+    "verificationSuccessful": "Verification successful! Please proceed to set your new password.",
+    "provideEmailAndNewPassword": "Please provide your email and new password.",
+    "newPassword": "New Password",
+    "passwordChangeSuccessful": "Password change successful!",
+    "welcomeBackLoggedIn": "Welcome back! You've successfully logged in.",
+    "accountCreationSuccessful": "Account creation successful!"
   },
 
   "public": {

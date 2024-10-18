@@ -127,9 +127,19 @@
     "rePassword": "إعادة كلمة المرور",
     "rePasswordIsRequired": "إعادة كلمة المرور مطلوبة.",
     "rePasswordMustUppercase": "يجب أن تبدأ إعادة كلمة المرور بحرف كبير وأن تكون على الأقل 6 أحرف.",
+    "passwordsDoNotMatch": "كلمات المرور غير متطابقة.",
     "phone": "الهاتف",
     "phoneIsRequired": "رقم الهاتف مطلوب.",
-    "enterValidEgyptianPhone": "أدخل رقم هاتف مصري صالح."
+    "enterValidEgyptianPhone": "أدخل رقم هاتف مصري صالح.",
+    "resetPasswordEnterEmail": "لإعادة تعيين كلمة المرور الخاصة بك، يرجى إدخال عنوان بريدك الإلكتروني",
+    "resetCodeSent": "تم إرسال رمز إعادة التعيين إلى بريدك الإلكتروني",
+    "verifyResetCode": "تحقق من رمز إعادة التعيين",
+    "verificationSuccessful": "تم التحقق بنجاح! يرجى المتابعة لتعيين كلمة المرور الجديدة الخاصة بك.",
+    "provideEmailAndNewPassword": "يرجى تقديم بريدك الإلكتروني وكلمة المرور الجديدة.",
+    "newPassword": "كلمة المرور الجديدة",
+    "passwordChangeSuccessful": "تم تغيير كلمة المرور بنجاح!",
+    "welcomeBackLoggedIn": "مرحبًا بعودتك! لقد تم تسجيل دخولك بنجاح.",
+    "accountCreationSuccessful": "تم إنشاء الحساب بنجاح!"
   },
 
   "public": {

@@ -1,1 +1,16 @@
-<p>send-email works!</p>
+<div class="text-center mb-5">
+  <img src="logo.png" alt="Image" height="50" class="mb-3">
+  <p class="m-0 flex justify-content-center gap-2 flex-wrap text-600 font-medium line-height-3">{{ 'auth.resetPasswordEnterEmail' | translate }}</p>
+</div>
+
+@if (errorMsg()) {
+  <p-messages [value]="[{ severity: 'error', detail: errorMsg() }]" [enableService]="false" dir="ltr" />
+}
+
+<form [formGroup]="sendEmailForm">
+  <app-validation-field [fieldControl]="sendEmailForm.controls.email" [validations]="[{name: 'required', msg: 'auth.emailIsRequired'}, {name: 'pattern', msg: 'auth.enterValidEmail'}]" [label]="{value: 'auth.email', for: 'send-email-input'}">
+    <input formControlName="email" id="send-email-input" type="email" class="w-full ng-dirty mb-1" [class.ng-invalid]="sendEmailForm.controls.email.invalid && sendEmailForm.controls.email.touched" [placeholder]="'auth.emailAddress' | translate" pInputText />
+  </app-validation-field>
+
+  <p-button type="submit" (onClick)="onSendEmail()" [disabled]="sendEmailForm.controls.email.invalid" [loading]="loading()" [label]="'auth.submit' | translate" icon="pi pi-send" styleClass="w-full" />
+</form>

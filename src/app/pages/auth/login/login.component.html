@@ -1,4 +1,4 @@
-<div class="surface-card p-4 shadow-2 border-1 border-200 border-round mb-6 my-2 mx-auto">
+<div class="surface-section p-4 shadow-2 border-1 border-200 border-round mb-6 my-2 mx-auto">
   <div class="text-center mb-5">
     <img src="logo.png" alt="Image" height="50" class="mb-3">
     <div class="text-900 text-3xl font-medium mb-3">{{ 'auth.loginWithYourEmail' | translate }}</div>
@@ -12,15 +12,13 @@
   }
 
   <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-
     <app-validation-field [fieldControl]="loginForm.controls.email" [validations]="[{name: 'required', msg: 'auth.emailIsRequired'}, {name: 'pattern', msg: 'auth.enterValidEmail'}]" [label]="{value: 'auth.email', for: 'login-email'}">
-      <input formControlName="email" id="login-email" type="text" class="w-full ng-dirty mb-1" [class.ng-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched" [placeholder]="'auth.emailAddress' | translate" pInputText />
+      <input formControlName="email" id="login-email" type="email" class="w-full ng-dirty mb-1" [class.ng-invalid]="loginForm.controls.email.invalid && loginForm.controls.email.touched" [placeholder]="'auth.emailAddress' | translate" pInputText />
     </app-validation-field>
 
     <app-validation-field [fieldControl]="loginForm.controls.password" [validations]="[{name: 'required', msg: 'auth.passwordIsRequired'}, {name: 'pattern', msg: 'auth.passwordMustUppercase'}]" [label]="{value: 'auth.password', for: 'login-password'}">
       <p-password inputId="login-password" styleClass="w-full" formControlName="password" [feedback]="false" [toggleMask]="true" [placeholder]="'auth.password' | translate" class="w-full ng-dirty mb-1" [class.ng-invalid]="loginForm.controls.password.invalid && loginForm.controls.password.touched" />
     </app-validation-field>
-
 
     <div class="flex align-items-center justify-content-between mb-6">
       <div class="flex gap-2 align-items-center">
