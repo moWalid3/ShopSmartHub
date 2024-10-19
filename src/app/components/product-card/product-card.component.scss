@@ -1,6 +1,13 @@
 :host {
   display: block;
 
+  .hover-style-div {
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 8px rgba(124, 58, 237, 0.15);
+    }
+  }
+
   .tag-absolute {
     position: absolute;
     left: 5px;

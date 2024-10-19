@@ -1,4 +1,4 @@
-<p-breadcrumb class="max-w-full mb-5" [home]="{ icon: 'pi pi-home', routerLink: '/' }" dir="ltr"
+<p-breadcrumb class="max-w-full mb-5" styleClass="surface-ground" [home]="{ icon: 'pi pi-home', routerLink: '/' }" dir="ltr"
   [model]="[
     { label: 'public.products' | translate, routerLink: '/products' },
     { label: product()?.title?.split(' ')?.slice(0, 3)?.join(' ')}
@@ -10,11 +10,11 @@
 }@else {
 <div class="flex gap-4 py-6 lg:flex-nowrap flex-wrap justify-content-center">
   @if (product() === null) {
-    <div class="max-w-full w-25rem h-26rem">
+    <div class="max-w-full w-25rem h-26rem" data-aos="fade-up" data-aos-delay="50">
       <p-skeleton width="100%" height="100%"></p-skeleton>
     </div>
 
-    <div class="pt-4 product-content flex-grow-1 lg:flex-auto">
+    <div class="pt-4 product-content flex-grow-1 lg:flex-auto" data-aos="fade-up" data-aos-delay="200">
       <p-skeleton width="70%" height="2rem" styleClass="mb-2"></p-skeleton>
       <p-skeleton width="100%" height="4rem" styleClass="mb-2"></p-skeleton>
       <p-skeleton width="40%" height="1rem" styleClass="mb-2"></p-skeleton>
@@ -30,7 +30,7 @@
     </div>
   } @else {
 
-    <p-galleria [value]="product()?.images" thumbnailsPosition="left" [numVisible]="5">
+    <p-galleria [value]="product()?.images" thumbnailsPosition="left" [numVisible]="5" data-aos="fade-up" data-aos-delay="50">
       <ng-template pTemplate="previousthumbnailicon"><i class="pi pi-angle-up"></i></ng-template>
       <ng-template pTemplate="nextthumbnailicon"><i class="pi pi-angle-down"></i></ng-template>
       <ng-template pTemplate="item" let-item>
@@ -43,7 +43,7 @@
       </ng-template>
     </p-galleria>
 
-    <div class="pt-4 product-content flex-grow-1 lg:flex-auto">
+    <div class="pt-4 product-content flex-grow-1 lg:flex-auto" data-aos="fade-up" data-aos-delay="200">
       <p class="mb-3 text-2xl font-semibold line-height-2 w-fit">{{ product()?.title }}</p>
       <p class="font-light text-700">{{ product()?.description }}</p>
       <p class="mt-0 flex gap-1 font-medium">{{'public.brand' | translate}}: <span class="font-light text-700">{{ product()?.brand?.name }}</span></p>

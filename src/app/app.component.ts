@@ -5,6 +5,8 @@ import { LanguageService } from './core/services/language/language.service';
 import { ScrollToTopService } from './core/services/scrollToTop/scroll-to-top.service';
 import { AuthService } from './core/services/auth/auth.service';
 import { ToastModule } from 'primeng/toast';
+//@ts-ignore
+import AOS from 'aos';
 
 @Component({
   selector: 'app-root',
@@ -27,5 +29,9 @@ export class AppComponent {
     this.primengConfig.ripple = true;
     this.scrollToTopService.setupScrollToTop();
     this.authService.checkAuthenticated();
+    AOS.init({
+      duration: 750,
+      once: true,
+    });
   }
 }

@@ -1,0 +1,15 @@
+:host {
+  display: block;
+
+  ::ng-deep {
+    .p-dataview {
+      .p-dataview-content {
+        background-color: var(--surface-ground);
+      }
+    }
+    
+    p-paginator {
+      background-color: var(--surface-ground);
+    }
+  }
+}

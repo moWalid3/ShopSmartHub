@@ -12,6 +12,9 @@ import { SkeletonModule } from 'primeng/skeleton';
   imports: [RouterLink, TranslateModule, ButtonModule, CategoryCardComponent, SkeletonModule],
   templateUrl: './categories-section.component.html',
   styleUrl: './categories-section.component.scss',
+  host: {
+    'class': 'block surface-section'
+  }
 })
 export class CategoriesSectionComponent {
   featuredCategories = input.required<ICategory[]>();

@@ -14,7 +14,7 @@ import { ILang, LanguageService } from '../../../core/services/language/language
   templateUrl: './top-header.component.html',
   styleUrl: './top-header.component.scss',
   host: {
-    class: "block border-bottom-1 border-200"
+    class: "border-bottom-1 border-primary bg-purple-800"
   }
 })
 export class TopHeaderComponent {

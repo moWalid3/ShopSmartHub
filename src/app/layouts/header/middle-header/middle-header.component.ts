@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
-
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DropdownModule } from 'primeng/dropdown';
 import { LanguageService } from '../../../core/services/language/language.service';
@@ -27,7 +26,7 @@ interface AutoCompleteCompleteEvent {
   templateUrl: './middle-header.component.html',
   styleUrl: './middle-header.component.scss',
   host: {
-    class: 'container flex justify-content-center md:justify-content-between align-items-center flex-wrap gap-2 py-3',
+    class: 'surface-section',
   },
 })
 export class MiddleHeaderComponent {

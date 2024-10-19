@@ -3,7 +3,7 @@
     <div class="grid grid-nogutter">
       @for (product of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
         <div class="col-12">
-          <app-skeleton-product-card layout="list" />
+          <app-skeleton-product-card layout="list" data-aos="zoom-in" />
         </div>
       }
     </div>
@@ -11,7 +11,7 @@
     <div class="grid grid-nogutter">
       @for (product of [1, 2, 3, 4, 5, 6, 7, 8]; track $index) {
         <div class="col-12 sm:col-6 lg:col-4 xl:col-3 p-2">
-          <app-skeleton-product-card />
+          <app-skeleton-product-card data-aos="zoom-in" />
         </div>
       }
     </div>
@@ -35,7 +35,7 @@
       <div class="grid grid-nogutter">
         @for (product of products; track product._id) {
           <div class="col-12">
-            <app-product-card [product]="product" layout="list" />
+            <app-product-card [product]="product" layout="list" data-aos="fade-up" />
           </div>
         }
       </div>
@@ -45,7 +45,7 @@
       <div class="grid grid-nogutter">
         @for (product of products; track product._id) {
           <div class="col-12 sm:col-6 lg:col-4 xl:col-3 p-2">
-            <app-product-card [product]="product" />
+            <app-product-card [product]="product" data-aos="fade-up" />
           </div>
         }
       </div>

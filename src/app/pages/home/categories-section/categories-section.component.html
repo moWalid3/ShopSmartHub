@@ -1,25 +1,27 @@
-<div class="flex justify-content-between align-items-center mb-5 pt-7">
-  <h6 class="main-title">{{ 'public.categories' | translate }}</h6>
-  <a routerLink="/categories" class="main-link">{{ 'home.categoriesSection.seeAllCategories' | translate }} <i class="pi pi-arrow-up-right"></i></a>
+<div class="container pb-5">
+  <div class="flex justify-content-between align-items-center mb-5 pt-7">
+    <h6 class="main-title">{{ 'public.categories' | translate }}</h6>
+    <a routerLink="/categories" class="main-link">{{ 'home.categoriesSection.seeAllCategories' | translate }} <i class="pi pi-arrow-up-right"></i></a>
+  </div>
+
+  @if (!featuredCategories().length) {
+    <div class="grid">
+      @for (category of [1, 2, 3, 4]; track $index) {
+        <div data-aos="fade-up" [attr.data-aos-delay]="($index * 100 - 50).toString()" class="col-12 sm:col-6 lg:col-3">
+          <p-skeleton width="100%" height="398px" />
+        </div>
+      }
+    </div>
+  }@else {
+    <div class="grid">
+      @for (category of featuredCategories(); track category._id) {
+        <div data-aos="fade-up" [attr.data-aos-delay]="($index * 100 - 50).toString()" class="col-12 sm:col-6 lg:col-3">
+
+          <app-category-card [category]="category" />
+
+        </div>
+      }
+    </div>
+  }
 </div>
-
-@if (!featuredCategories().length) {
-  <div class="grid">
-    @for (category of [1, 2, 3, 4]; track $index) {
-      <div class="col-12 sm:col-6 lg:col-3">
-        <p-skeleton width="100%" height="398px" />
-      </div>
-    }
-  </div>
-}@else {
-  <div class="grid">
-    @for (category of featuredCategories(); track category._id) {
-      <div class="col-12 sm:col-6 lg:col-3">
-
-        <app-category-card [category]="category" />
-
-      </div>
-    }
-  </div>
-}
 

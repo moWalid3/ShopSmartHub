@@ -1,43 +1,46 @@
-<a routerLink="/" class="text-primary flex-center gap-1 logo" dir="ltr">
-  <img src="logo.png" alt="Logo" class="w-3rem"> SSH
-</a>
-
-<div class="flex">
-  <p-dropdown
-    [options]="categories"
-    [(ngModel)]="selectedCategory"
-    [showClear]="true"
-    [placeholder]="'public.categories'| translate"
-    [styleClass]="languageService.currentLanguage() === 'ar' ? 'ar-categories-drop-down' : 'en-categories-drop-down'"
-  />
-
-  <p-autoComplete
-    [(ngModel)]="country"
-    [showClear]="true"
-    [suggestions]="filteredCountries!"
-    (completeMethod)="filterCountry($event)"
-    optionLabel="name"
-    dropdownIcon="pi pi-phone"
-    [placeholder]="'header.middle.searchForProducts' | translate"
-    [class]="languageService.currentLanguage() === 'ar' ? 'ar-auto-complete-input' : 'en-auto-complete-input'"
-    styleClass="xl:w-30rem"
-  />
-</div>
-
-<div class="flex-center gap-4 w-full lg:w-auto mt-2 lg:mt-0">
-  <a class="icon-link icon-link-pink" href="tel:+201050747532">
-    <span class="tra-2 flex-center"><i class="pi pi-phone"></i></span>
-    <div>
-      <span class="text-13px font-light text-500">{{ 'header.middle.hotline' | translate }}</span>
-      <p class="mb-0 mt-1 text-sm font-bold text-900">01050747532</p>
-    </div>
+<div class="container flex justify-content-center md:justify-content-between align-items-center flex-wrap gap-2 py-3">
+  <a routerLink="/" class="text-primary flex-center gap-1 logo" dir="ltr">
+    <img src="logo.png" alt="Logo" class="w-3rem"> SSH
   </a>
 
-  <a class="icon-link" routerLink="/login">
-    <span class="tra-2 flex-center"><i class="pi pi-user"></i></span>
-    <div>
-      <span class="text-13px font-light text-500">{{ 'header.middle.loginYour' | translate }}</span>
-      <p class="mb-0 mt-1 text-sm font-bold text-900">{{ 'header.middle.account' | translate }}</p>
-    </div>
-  </a>
+  <div class="flex">
+    <p-dropdown
+      [options]="categories"
+      [(ngModel)]="selectedCategory"
+      [showClear]="true"
+      [placeholder]="'public.categories'| translate"
+      [styleClass]="languageService.currentLanguage() === 'ar' ? 'ar-categories-drop-down' : 'en-categories-drop-down'"
+    />
+
+    <p-autoComplete
+      [(ngModel)]="country"
+      [showClear]="true"
+      [suggestions]="filteredCountries!"
+      (completeMethod)="filterCountry($event)"
+      optionLabel="name"
+      dropdownIcon="pi pi-phone"
+      [placeholder]="'header.middle.searchForProducts' | translate"
+      [class]="languageService.currentLanguage() === 'ar' ? 'ar-auto-complete-input' : 'en-auto-complete-input'"
+      styleClass="xl:w-30rem"
+    />
+  </div>
+
+  <div class="flex-center gap-4 w-full lg:w-auto mt-2 lg:mt-0">
+    <a class="icon-link icon-link-pink" href="tel:+201050747532">
+      <span class="tra-2 flex-center"><i class="pi pi-phone"></i></span>
+      <div>
+        <span class="text-13px font-light text-500">{{ 'header.middle.hotline' | translate }}</span>
+        <p class="mb-0 mt-1 text-sm font-bold text-900">01050747532</p>
+      </div>
+    </a>
+
+    <a class="icon-link" routerLink="/login">
+      <span class="tra-2 flex-center"><i class="pi pi-user"></i></span>
+      <div>
+        <span class="text-13px font-light text-500">{{ 'header.middle.loginYour' | translate }}</span>
+        <p class="mb-0 mt-1 text-sm font-bold text-900">{{ 'header.middle.account' | translate }}</p>
+      </div>
+    </a>
+  </div>
 </div>
+

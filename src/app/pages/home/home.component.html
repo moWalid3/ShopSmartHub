@@ -1,7 +1,7 @@
 <app-landing />
 
+<app-categories-section [featuredCategories]="categoriesService.featuredCategories()" />
 <div class="container">
-  <app-categories-section [featuredCategories]="categoriesService.featuredCategories()" />
   <app-carousel-products [products]="productsService.monthSalesProducts()" title="public.thisMonthSales" />
   <app-offer-section />
   <app-new-in-section [newInProducts]="productsService.newInProducts()" />

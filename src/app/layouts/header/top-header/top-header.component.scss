@@ -1,0 +1,21 @@
+:host {
+  display: block;
+
+  .nav-link {
+    color: white;
+    &:hover {
+      color: var(--primary-300);
+    }
+  }
+
+  .sale-img {
+    width: 1.5rem;
+  }
+
+  ::ng-deep {
+    .p-inputtext {
+      padding: .25rem .75rem;
+    }
+  }
+
+}
