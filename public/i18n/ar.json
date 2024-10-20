@@ -142,6 +142,33 @@
     "accountCreationSuccessful": "تم إنشاء الحساب بنجاح!"
   },
 
+  "cart": {
+    "product": "المنتج",
+    "price": "السعر",
+    "quantity": "الكمية",
+    "subTotal": "المجموع الفرعي",
+    "clearCart": "إفراغ عربة التسوق",
+    "havePromoCode": "هل لديك رمز ترويجي؟",
+    "enterPromoCode": "أدخله هنا للحصول على خصم إضافي.",
+    "enterCouponCode": "أدخل رمز القسيمة",
+    "get": "احصل على",
+    "totalItemValues": "إجمالي قيمة العناصر",
+    "totalDiscount": "إجمالي الخصم",
+    "shippingFee": "رسوم الشحن",
+    "total": "الإجمالي",
+    "specialInstructions": "هل هناك أي شيء محدد ترغب في إضافته أو أي تعليمات خاصة لطلبك؟ دعنا نعرف في المربع أدناه.",
+    "notesAboutYourOrders": "ملاحظات حول طلباتك!",
+    "proceedToCheckout": "المتابعة إلى الدفع",
+    "cartEmpty": "عربة التسوق فارغة",
+    "continueShopping": "مواصلة التسوق",
+    "cartClearedSuccessfully": "تم إفراغ عربة التسوق بنجاح!"
+  },
+
+  "primeng": {
+    "accept": "نعم",
+    "reject": "لا"
+  },
+
   "public": {
     "new": "جديد",
     "products": "المنتجات",
@@ -152,6 +179,10 @@
     "brands": "العلامات التجارية",
     "brand": "العلامة التجارية",
     "category": "الفئة",
-    "noProductsAvailable": "لا توجد منتجات متاحة"
+    "noProductsAvailable": "لا توجد منتجات متاحة",
+    "cart": "عربة التسوق",
+    "loginToContinue": "تحتاج إلى تسجيل الدخول للمتابعة.",
+    "clearCartConfirmation": "هل أنت متأكد أنك تريد إزالة جميع المنتجات من عربة التسوق الخاصة بك؟",
+    "clearCartConfirmationTitle": "تأكيد إفراغ عربة التسوق"
   }
 }

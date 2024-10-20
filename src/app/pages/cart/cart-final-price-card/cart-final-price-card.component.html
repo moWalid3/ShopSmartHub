@@ -1,0 +1,13 @@
+<p class="font-semibold mb-2 mt-0 text-900">{{ 'cart.havePromoCode' | translate }}</p>
+<p class="text-700 mt-0 mb-3">{{ 'cart.enterPromoCode' | translate }}</p>
+<div class="flex gap-1 mb-5">
+  <input type="text" pInputText variant="filled" [placeholder]="'cart.enterCouponCode' | translate" class="border-round-3xl w-full flex-grow-1" />
+  <p-button [label]="'cart.get' | translate" [rounded]="true" />
+</div>
+<p class="flex justify-content-between align-items-center mt-0 text-700">{{ 'cart.totalItemValues' | translate }} <span class="text-900 font-semibold">EGP {{ totalPrice() }}</span></p>
+<p class="flex justify-content-between align-items-center mt-0 text-700">{{ 'cart.totalDiscount' | translate }} <span class="text-900 font-semibold">- EGP 199</span></p>
+<p class="flex justify-content-between align-items-center pb-4 border-bottom-2 border-600 border-none border-dashed text-700">{{ 'cart.shippingFee' | translate }} <span class="text-900 font-semibold">EGP 199</span></p>
+<p class="flex justify-content-between align-items-center mb-5 text-900 text-xl font-semibold">{{ 'cart.total' | translate }} <span class="text-900 font-semibold">EGP {{ totalPrice() }}</span></p>
+<p class="flex justify-content-between align-items-center mt-0 text-700 line-height-3">{{ 'cart.specialInstructions' | translate }}</p>
+<textarea rows="5" cols="30" class="w-full mb-5" variant="filled" [placeholder]="'cart.notesAboutYourOrders' | translate" pInputTextarea [autoResize]="true"></textarea>
+<p-button [label]="'cart.proceedToCheckout' | translate" icon="pi pi-dollar" [rounded]="true" styleClass="w-full" class="checkout-btn" size="large" />

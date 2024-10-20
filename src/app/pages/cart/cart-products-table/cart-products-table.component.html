@@ -1,0 +1,37 @@
+<p-table [value]="cartProducts()" class="my-table" styleClass="border-1 border-primary-100 border-round overflow-hidden"
+  [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10]" [tableStyle]="{'min-width': '45rem'}"
+>
+  <ng-template pTemplate="header">
+    <tr>
+      @for (item of ['product', 'price', 'quantity', 'subTotal']; track $index) {
+        <th class="bg-primary" [class.w-19rem]="$first">{{ ('cart.'+item) | translate }}</th>
+      }
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="body" let-product>
+    <tr>
+      <td class="flex align-items-center gap-3">
+        <div class="relative">
+          <img [src]="product.product.imageCover" [alt]="product.name" class="w-5rem border-1 border-primary-200 border-round" />
+          <p-button (onClick)="deleteProductFromCart(product.product._id)" icon="pi pi-trash" severity="danger" styleClass="handle-size" class="delete-product-button" [rounded]="true" [raised]="true"/>
+        </div>
+        <a [routerLink]="['/product-details', product.product._id]">{{ product?.product?.title?.split(' ').slice(0, 4).join(" ")}}</a>
+      </td>
+
+      <td class="text-700">EGP {{ product.price }}</td>
+
+      <td>
+        <p-button (onClick)="updateCartProductQuantity({productId: product.product._id, newCount: product.count - 1})" icon="pi pi-minus" [disabled]="product.count === 0" [outlined]="true" />
+        <span class="count-number">{{ product.count }}</span>
+        <p-button (onClick)="updateCartProductQuantity({productId: product.product._id, newCount: product.count + 1})" icon="pi pi-plus" [disabled]="product.count === 10" [outlined]="true" />
+      </td>
+
+      <td class="font-medium text-900">EGP {{ product.price * product.count }}</td>
+    </tr>
+  </ng-template>
+
+  <ng-template pTemplate="summary">
+    <p-button (onClick)="clearCartConfirm($event)" icon="pi pi-trash" severity="danger" [rounded]="true" [label]="'cart.clearCart' | translate" [loading]="clearCartLoading()" class="my-2 block" />
+  </ng-template>
+</p-table>

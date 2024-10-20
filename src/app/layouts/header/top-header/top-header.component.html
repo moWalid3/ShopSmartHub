@@ -10,7 +10,7 @@
   </a>
 
   <div class="flex gap-3 align-items-center">
-    <p-dropdown [options]="languageService.availableLanguages" [ngModel]="languageService.currentLanguage()" (onChange)="onSelectLanguage($event)" placeholder="Select a Language">
+    <p-dropdown [options]="languageService.availableLanguages" [ngModel]="languageService.currentLanguage()" (onChange)="onSelectLanguage($event)" placeholder="Select a Language" variant="filled">
       <ng-template pTemplate="selectedItem">
         <div class="flex align-items-center gap-2">
           <img [src]="'flags/'+languageService.currentLanguage()+'.png'" class="flag" style="width: 18px" />

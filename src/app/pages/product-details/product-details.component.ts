@@ -1,6 +1,6 @@
 import { Component, computed, inject, input, Signal, signal} from '@angular/core';
 import { BreadcrumbModule } from 'primeng/breadcrumb';
-import { TranslateModule } from '@ngx-translate/core';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { ProductsService } from '../../core/services/products/products.service';
 import { IProduct } from '../../core/models/product.model';
 import { ButtonModule } from 'primeng/button';
@@ -10,6 +10,9 @@ import { CarouselProductsComponent } from '../../components/carousel-products/ca
 import { SkeletonModule } from 'primeng/skeleton';
 import { NgClass } from '@angular/common';
 import { MessagesModule } from 'primeng/messages';
+import { AuthService } from '../../core/services/auth/auth.service';
+import { MessageService } from 'primeng/api';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-details',
@@ -32,6 +35,11 @@ import { MessagesModule } from 'primeng/messages';
   },
 })
 export class ProductDetailsComponent {
+  private authService = inject(AuthService);
+  private translate = inject(TranslateService);
+  private messageService = inject(MessageService);
+  private router = inject(Router);
+
   id = input.required<string>();
   productsService = inject(ProductsService);
   product = signal<null | IProduct>(null);
@@ -45,6 +53,13 @@ export class ProductDetailsComponent {
         this.relatedProducts = computed(() => this.productsService.getCategoryProducts(prod.category._id)().slice(0, 8));
       },
       error: err => this.errorMsg.set(err)
-  });
+    });
+  }
+
+  onAddToCart() {
+    if(!this.authService.isAuthenticated()){
+      this.messageService.add({ severity: 'info', summary: this.translate.instant('public.loginToContinue')})
+      this.router.navigate(['/login']);
+    }
   }
 }

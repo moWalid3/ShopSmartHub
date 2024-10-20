@@ -142,6 +142,33 @@
     "accountCreationSuccessful": "Account creation successful!"
   },
 
+  "cart": {
+    "product": "Product",
+    "price": "Price",
+    "quantity": "Quantity",
+    "subTotal": "Sub Total",
+    "clearCart": "Clear Cart",
+    "havePromoCode": "Have a Promo Code?",
+    "enterPromoCode": "Enter it here for additional savings.",
+    "enterCouponCode": "Enter Coupon Code",
+    "get": "Get",
+    "totalItemValues": "Total Item Values",
+    "totalDiscount": "Total Discount",
+    "shippingFee": "Shipping Fee",
+    "total": "Total",
+    "specialInstructions": "Is there anything specific you'd like to add or any special instructions for your order? Let us know in the box below.",
+    "notesAboutYourOrders": "Notes about your orders!",
+    "proceedToCheckout": "Proceed To Checkout",
+    "cartEmpty": "Your Cart is Empty",
+    "continueShopping": "Continue Shopping",
+    "cartClearedSuccessfully": "Cart cleared successfully!"
+  },
+
+  "primeng": {
+    "accept": "Yes",
+    "reject": "No"
+  },
+
   "public": {
     "new": "New",
     "products": "Products",
@@ -152,6 +179,10 @@
     "brands": "Brands",
     "brand": "Brand",
     "category": "Category",
-    "noProductsAvailable": "No products available"
+    "noProductsAvailable": "No products available",
+    "cart": "Cart",
+    "loginToContinue": "You need to log in to continue.",
+    "clearCartConfirmation": "Are you sure you want to clear all products from your cart?",
+    "clearCartConfirmationTitle": "Clear Cart Confirmation"
   }
 }

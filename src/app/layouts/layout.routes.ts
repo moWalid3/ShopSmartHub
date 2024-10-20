@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { LayoutsComponent } from './layouts.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { TestmeComponent } from '../pages/testme/testme.component';
+import { accessControlGuard } from '../core/guards/access-control.guard';
 
 export const layoutRoutes: Routes = [
   {
@@ -38,6 +39,11 @@ export const layoutRoutes: Routes = [
       {
         path: 'product-details/:id',
         loadComponent: () => import('../pages/product-details/product-details.component').then(m => m.ProductDetailsComponent)
+      },
+      {
+        path: 'cart',
+        loadComponent: () => import('../pages/cart/cart.component').then(m => m.CartComponent),
+        canActivate: [accessControlGuard]
       },
     ]
   }

@@ -1,0 +1,33 @@
+<p-breadcrumb class="max-w-full mb-5" styleClass="surface-ground" [model]="[{label: 'public.cart' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+@if (loading()) { <!-- Until update product count and delete product response finished  -->
+  <p-progressSpinner ariaLabel="loading" styleClass="w-full flex-center" />
+}
+
+@if (!endResponse()) { <!-- Show skeleton until getCart response finished  -->
+  <app-cart-skeleton />
+}@else {
+
+  @if (!cartProducts().length) { <!-- Empty cart  -->
+    <div class="mt-4 mb-6 text-center">
+      <img src="svg/empty-cart.svg" class="max-w-full w-20rem" alt="Empty Cart">
+      <p class="text-2xl font-semibold mt-4 mb-2 line-height-3">{{ 'cart.cartEmpty' | translate }}</p>
+      <p-button [label]="'cart.continueShopping' | translate" routerLink="/products" [rounded]="true" />
+    </div>
+
+  }@else { <!-- Cart products with total price controls  -->
+    <div class="grid mt-3 mb-5">
+      <div class="col-12 xl:col-8" data-aos="fade-up">
+        <app-cart-products-table [cartProducts]="cartProducts()" [clearCartLoading]="clearCartLoading()"
+          (onClearCart)="onClearCart()" (onDeleteProductFromCart)="onDeleteProductFromCart($event)"
+          (onUpdateCartProductQuantity)="onUpdateCartProductQuantity($event)"
+        />
+      </div>
+
+      <div class="col-12 xl:col-4" data-aos="fade-up" [attr.data-aos-delay]="100">
+        <app-cart-final-price-card [totalPrice]="cartService.userCart()?.data?.totalCartPrice || 0" />
+      </div>
+    </div>
+  }
+
+}

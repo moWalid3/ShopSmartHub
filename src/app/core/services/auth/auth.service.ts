@@ -3,8 +3,6 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { ISuccessAuth, IUser } from '../../models/auth.model';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
-import { MessageService } from 'primeng/api';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +12,7 @@ export class AuthService {
   private http = inject(HttpClient);
   private userToken = signal('');
   isAuthenticated = computed(() => !!this.userToken());
+  token = computed(() => this.userToken());
 
   login(data: {email: string, password: string}) {
     return this.http.post<ISuccessAuth>('https://ecommerce.routemisr.com/api/v1/auth/signin', data).pipe(

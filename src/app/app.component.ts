@@ -7,14 +7,17 @@ import { AuthService } from './core/services/auth/auth.service';
 import { ToastModule } from 'primeng/toast';
 //@ts-ignore
 import AOS from 'aos';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
+import { ConfirmationService } from 'primeng/api';
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ToastModule],
+  imports: [RouterOutlet, ToastModule, ConfirmDialogModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  providers: [MessageService],
+  providers: [MessageService, ConfirmationService],
   host: {
     '[dir]': "languageService.currentLanguage() === 'ar' ? 'rtl' : 'ltr'"
   }

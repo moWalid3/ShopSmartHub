@@ -11,7 +11,7 @@ export interface IProductsRes {
 export interface IProduct {
   sold: number;
   images: string[];
-  subcategory: Subcategory[];
+  subcategory: ISubcategory[];
   ratingsQuantity: number;
   _id: string;
   title: string;
@@ -31,7 +31,7 @@ export interface IProduct {
   reviews?: any[],
 }
 
-interface Subcategory {
+export interface ISubcategory {
 	_id: string;
 	name: string;
 	slug: string;
