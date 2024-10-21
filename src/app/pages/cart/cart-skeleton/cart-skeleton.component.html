@@ -1,10 +1,10 @@
-<div class="col-12 xl:col-8">
+<div class="col-12 xl:col-8" >
   @for (item of [1, 2, 3, 4, 5, 6]; track $index) {
-    <p-skeleton width="100%" height="3rem" class="block mb-3" />
+    <p-skeleton width="100%" height="3rem" class="block mb-3" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
   }
 </div>
 <div class="col-12 xl:col-4">
-  <div class="border-round surface-200 p-5">
+  <div class="border-round surface-200 p-5" data-aos="fade-up" data-aos-delay="150">
     <p-skeleton width="100%" height="1.5rem" class="block mb-1" />
     <p-skeleton width="100%" height="1.5rem" class="block mb-1" />
     <p-skeleton width="100%" height="1.5rem" class="block mb-5" />

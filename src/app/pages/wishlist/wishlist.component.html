@@ -1,0 +1,51 @@
+<p-breadcrumb class="max-w-full" styleClass="surface-ground mb-4" [model]="[{label: 'public.wishlist' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+@if (loading()) { <!-- Until update product count and delete product response finished  -->
+  <p-progressSpinner ariaLabel="loading" styleClass="w-full flex-center" />
+}
+
+@if (!endResponse()) { <!-- Show skeleton until getWishlist response finished  -->
+  @for (item of [1, 2, 3, 4, 5, 6]; track $index) {
+    <p-skeleton width="100%" height="3rem" class="block mb-3" [class.mb-6]="$last" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
+  }
+}@else {
+
+  @if (!wishlistProducts().length) { <!-- Empty wishlist  -->
+    <div class="mb-6 text-center" data-aos="fade-up">
+      <img src="svg/empty-wishlist.svg" class="max-w-full w-20rem" alt="Empty Wishlist">
+      <p class="text-2xl font-semibold mt-4 mb-2 line-height-3">{{ 'wishlist.wishlistEmpty' | translate }}</p>
+      <p-button [label]="'cart.continueShopping' | translate" routerLink="/products" [rounded]="true" />
+    </div>
+
+  }@else { <!-- Wishlist table products  -->
+    <div class="mb-6" data-aos="fade-up">
+      <p-table [value]="wishlistProducts()" class="my-table" styleClass="border-1 border-primary-100 border-round"
+        [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10]" [tableStyle]="{'min-width': '55rem'}"
+      >
+        <ng-template pTemplate="header">
+          <tr>
+            @for (item of ['product', 'price', 'rate', 'addToCart']; track $index) {
+              <th class="bg-primary">{{ ('cart.'+item) | translate }}</th>
+            }
+          </tr>
+        </ng-template>
+
+        <ng-template pTemplate="body" let-product>
+          <tr>
+            <td class="flex align-items-center gap-3">
+              <div class="relative">
+                <img [src]="product.imageCover" [alt]="product.name" class="w-5rem border-1 border-primary-200 border-round" />
+                <p-button (onClick)="onDeleteProductFromWishlist(product._id)" icon="pi pi-trash" severity="danger" styleClass="handle-size" class="delete-product-button" [rounded]="true" [raised]="true"/>
+              </div>
+              <a [routerLink]="['/product-details', product._id]">{{ product?.title?.split(' ').slice(0, 4).join(" ")}}</a>
+            </td>
+            <td class="font-medium text-900">EGP {{ product.price }}</td>
+            <td class="text-700" dir="ltr"><p-rating [ngModel]="product.ratingsAverage" [readonly]="true" class="mr-" [cancel]="false" /> {{ product.ratingsAverage }}</td>
+            <td><p-button (onClick)="onAddToCart(product._id)" [label]="'product.addToCart' | translate" [rounded]="true" icon="pi pi-shopping-cart" /></td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  }
+
+}

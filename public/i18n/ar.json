@@ -161,7 +161,16 @@
     "proceedToCheckout": "المتابعة إلى الدفع",
     "cartEmpty": "عربة التسوق فارغة",
     "continueShopping": "مواصلة التسوق",
-    "cartClearedSuccessfully": "تم إفراغ عربة التسوق بنجاح!"
+    "cartClearedSuccessfully": "تم إفراغ عربة التسوق بنجاح!",
+    "productAddedToCart": "تمت إضافة المنتج إلى عربة التسوق بنجاح!",
+    "rate": "تقييم",
+    "addToCart": "أضف إلى السلة"
+  },
+
+  "wishlist": {
+    "productAddedToWishlist": "تمت إضافة المنتج إلى قائمة الأمنيات بنجاح!",
+    "productRemovedFromWishlist": "تمت إزالة المنتج من قائمة الأمنيات بنجاح!",
+    "wishlistEmpty": "قائمة الأمنيات فارغة"
   },
 
   "primeng": {
@@ -183,6 +192,7 @@
     "cart": "عربة التسوق",
     "loginToContinue": "تحتاج إلى تسجيل الدخول للمتابعة.",
     "clearCartConfirmation": "هل أنت متأكد أنك تريد إزالة جميع المنتجات من عربة التسوق الخاصة بك؟",
-    "clearCartConfirmationTitle": "تأكيد إفراغ عربة التسوق"
+    "clearCartConfirmationTitle": "تأكيد إفراغ عربة التسوق",
+    "wishlist": "قائمة الأمنيات"
   }
 }

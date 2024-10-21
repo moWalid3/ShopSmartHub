@@ -159,9 +159,18 @@
     "specialInstructions": "Is there anything specific you'd like to add or any special instructions for your order? Let us know in the box below.",
     "notesAboutYourOrders": "Notes about your orders!",
     "proceedToCheckout": "Proceed To Checkout",
-    "cartEmpty": "Your Cart is Empty",
+    "cartEmpty": "Your Cart Is Empty",
     "continueShopping": "Continue Shopping",
-    "cartClearedSuccessfully": "Cart cleared successfully!"
+    "cartClearedSuccessfully": "Cart cleared successfully!",
+    "productAddedToCart": "Product added to your cart successfully!",
+    "rate": "Rate",
+    "addToCart": "Add To Cart"
+  },
+
+  "wishlist": {
+    "productAddedToWishlist": "Product added to your wishlist successfully!",
+    "productRemovedFromWishlist": "Product removed from your wishlist successfully!",
+    "wishlistEmpty": "Your Wishlist Is Empty"
   },
 
   "primeng": {
@@ -183,6 +192,7 @@
     "cart": "Cart",
     "loginToContinue": "You need to log in to continue.",
     "clearCartConfirmation": "Are you sure you want to clear all products from your cart?",
-    "clearCartConfirmationTitle": "Clear Cart Confirmation"
+    "clearCartConfirmationTitle": "Clear Cart Confirmation",
+    "wishlist": "Wishlist"
   }
 }

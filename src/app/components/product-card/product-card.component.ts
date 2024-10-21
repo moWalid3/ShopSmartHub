@@ -1,4 +1,4 @@
-import { Component, inject, input, signal } from '@angular/core';
+import { Component, computed, inject, input, signal } from '@angular/core';
 import { IProduct } from '../../core/models/product.model';
 import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
@@ -9,6 +9,7 @@ import { NgClass } from '@angular/common';
 import { AuthService } from '../../core/services/auth/auth.service';
 import { MessageService } from 'primeng/api';
 import { CartService } from '../../core/services/cart/cart.service';
+import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-product-card',
@@ -20,6 +21,7 @@ import { CartService } from '../../core/services/cart/cart.service';
 export class ProductCardComponent {
   private authService = inject(AuthService);
   private cartService = inject(CartService);
+  private wishlistService = inject(WishlistService);
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private router = inject(Router);
@@ -27,25 +29,71 @@ export class ProductCardComponent {
   product = input.required<IProduct>();
   layout = input<'list' | 'grid'>('grid');
   addToCartLoading = signal(false);
+  favoriteLoading = signal(false);
+
+  isItOnMyWishlist = computed(() => {
+    if(this.wishlistService.wishlistProductsIdAfterAction())
+      return this.wishlistService.wishlistProductsIdAfterAction()!.some(productId => this.product()._id === productId)
+
+    return this.wishlistService.userWishlist()?.data.some(prod => prod._id === this.product()._id);
+  });
 
   onAddToCart() {
     if(!this.authService.isAuthenticated()){
-      this.messageService.add({ severity: 'info', summary: this.translate.instant('public.loginToContinue')})
-      this.router.navigate(['/login']);
+      this.userNotAuthenticated();
     }else {
       this.addToCartLoading.set(true)
       this.cartService.addProductToCart(this.product()._id).subscribe({
-        next: (res) => {
-          this.addToCartLoading.set(false)
-          console.log(res);
-          this.messageService.add({ severity: 'success', summary: this.translate.instant('public.loginToContinue')})
-        },
-        error: (err) => {
-          this.addToCartLoading.set(false)
-          console.log(err);
-          this.messageService.add({ severity: 'info', summary: this.translate.instant('public.loginToContinue')})
-        },
+        next: (res) => this.successResponseFor('cart', 'cart.productAddedToCart'),
+        error: (err) => this.failedResponseFor('cart', err),
       });
     }
+  }
+
+  onHandleWishlist() {
+    if(!this.authService.isAuthenticated()){
+      this.userNotAuthenticated();
+    }else {
+      this.favoriteLoading.set(true);
+
+      if(this.isItOnMyWishlist()) {
+        this.removeFromWishlist();
+      } else {
+        this.addToWishlist();
+      }
+    }
+  }
+
+  private removeFromWishlist() {
+    this.wishlistService.removeProductFromWishlist(this.product()._id).subscribe({
+      next: res => this.successResponseFor('wishlist', 'wishlist.productRemovedFromWishlist'),
+      error: err => this.failedResponseFor('wishlist', err)
+    })
+  }
+
+  private addToWishlist() {
+    this.wishlistService.addProductToWishlist(this.product()._id).subscribe({
+      next: res => this.successResponseFor('wishlist', 'wishlist.productAddedToWishlist'),
+      error: err => this.failedResponseFor('wishlist', err)
+    })
+  }
+
+  private successResponseFor(type: 'cart'|'wishlist', msg: string) {
+    type === 'cart' ? this.addToCartLoading.set(false) : this.favoriteLoading.set(false);
+    this.messageService.add({ severity: 'success', summary: this.translate.instant(msg)})
+  }
+
+  private failedResponseFor(type: 'cart'|'wishlist', err: any) {
+    type === 'cart' ? this.addToCartLoading.set(false) : this.favoriteLoading.set(false);
+    this.handleErrorResponse(err.error?.message || err.error?.errors?.msg)
+  }
+
+  private userNotAuthenticated() {
+    this.messageService.add({ severity: 'info', summary: this.translate.instant('public.loginToContinue')})
+    this.router.navigate(['/login']);
+  }
+
+  private handleErrorResponse(errorMsg = "Failed to fetch") {
+    this.messageService.add({ severity: 'error', summary: errorMsg})
   }
 }

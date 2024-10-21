@@ -36,7 +36,7 @@
   >
     <span class="text-800 text-xs flex gap-2 align-items-center border-1 border-300 border-round-2xl px-2 py-1"><i class="pi pi-truck text-xs"></i> {{ 'product.freeDelivery' | translate }}</span>
     <span>
-      <p-button [pTooltip]="'product.favorite' | translate" tooltipStyleClass="text-13px" tooltipPosition="top" [rounded]="true" icon="pi pi-heart" severity="secondary" [raised]="true" [class]="layout() === 'grid' ? 'wishlist-icon' : 'mr-2'" />
+      <p-button (onClick)="onHandleWishlist()" [loading]="favoriteLoading()" [pTooltip]="'product.favorite' | translate" tooltipStyleClass="text-13px" tooltipPosition="top" [rounded]="true" [icon]="'pi '+ (isItOnMyWishlist() ? 'pi-heart-fill' : 'pi-heart')" severity="danger" [class]="layout() === 'grid' ? 'wishlist-icon' : 'mr-2'" />
       <p-button (onClick)="onAddToCart()" [loading]="addToCartLoading()" [pTooltip]="'product.addToCart' | translate" tooltipStyleClass="text-13px" tooltipPosition="top" [rounded]="true" icon="pi pi-shopping-cart" />
     </span>
   </div>

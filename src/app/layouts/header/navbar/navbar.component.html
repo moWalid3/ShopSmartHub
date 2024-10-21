@@ -19,7 +19,7 @@
 
   <div class="flex gap-5 align-items-center">
     <a routerLink="/wishlist" class="wishlist-link" (click)="canEnter()">
-      <span pBadge value="0" class="tra-2 text-sm flex-center"><i class="pi pi-heart"></i></span>
+      <span pBadge [value]="wishlistProductsCount()" class="tra-2 text-sm flex-center"><i class="pi pi-heart"></i></span>
     </a>
 
     <a routerLink="/cart" class="cart-link" (click)="canEnter()">

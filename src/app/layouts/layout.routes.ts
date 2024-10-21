@@ -45,6 +45,11 @@ export const layoutRoutes: Routes = [
         loadComponent: () => import('../pages/cart/cart.component').then(m => m.CartComponent),
         canActivate: [accessControlGuard]
       },
+      {
+        path: 'wishlist',
+        loadComponent: () => import('../pages/wishlist/wishlist.component').then(m => m.WishlistComponent),
+        canActivate: [accessControlGuard]
+      },
     ]
   }
 ]
