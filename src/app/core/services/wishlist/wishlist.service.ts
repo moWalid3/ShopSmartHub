@@ -15,6 +15,13 @@ export class WishlistService {
   userWishlist = computed(() => this.wishlist$());
   wishlistProductsIdAfterAction = signal<string[] | null>(null)
 
+  isItOnMyWishlist = (productId: string) => computed(() => {
+    if(this.wishlistProductsIdAfterAction())
+      return this.wishlistProductsIdAfterAction()!.some(id => productId === id)
+
+    return this.userWishlist()?.data.some(prod => prod._id === productId);
+  });
+
   constructor() {
     if(this.authService.isAuthenticated()) this.getWishlistProducts().subscribe();
   }

@@ -21,22 +21,22 @@ import { WishlistService } from '../../core/services/wishlist/wishlist.service';
 export class ProductCardComponent {
   private authService = inject(AuthService);
   private cartService = inject(CartService);
-  private wishlistService = inject(WishlistService);
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private router = inject(Router);
+  wishlistService = inject(WishlistService);
 
   product = input.required<IProduct>();
   layout = input<'list' | 'grid'>('grid');
   addToCartLoading = signal(false);
   favoriteLoading = signal(false);
 
-  isItOnMyWishlist = computed(() => {
-    if(this.wishlistService.wishlistProductsIdAfterAction())
-      return this.wishlistService.wishlistProductsIdAfterAction()!.some(productId => this.product()._id === productId)
+  // isItOnMyWishlist = computed(() => {
+  //   if(this.wishlistService.wishlistProductsIdAfterAction())
+  //     return this.wishlistService.wishlistProductsIdAfterAction()!.some(productId => this.product()._id === productId)
 
-    return this.wishlistService.userWishlist()?.data.some(prod => prod._id === this.product()._id);
-  });
+  //   return this.wishlistService.userWishlist()?.data.some(prod => prod._id === this.product()._id);
+  // });
 
   onAddToCart() {
     if(!this.authService.isAuthenticated()){
@@ -56,7 +56,7 @@ export class ProductCardComponent {
     }else {
       this.favoriteLoading.set(true);
 
-      if(this.isItOnMyWishlist()) {
+      if(this.wishlistService.isItOnMyWishlist(this.product()._id)()) {
         this.removeFromWishlist();
       } else {
         this.addToWishlist();

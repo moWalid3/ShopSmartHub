@@ -10,7 +10,7 @@
 }@else {
 <div class="flex gap-4 py-6 lg:flex-nowrap flex-wrap justify-content-center">
   @if (product() === null) {
-    <div class="max-w-full w-25rem h-26rem" data-aos="fade-up" data-aos-delay="50">
+    <div class="max-w-full w-30rem h-30rem" data-aos="fade-up" data-aos-delay="50">
       <p-skeleton width="100%" height="100%"></p-skeleton>
     </div>
 
@@ -34,7 +34,7 @@
       <ng-template pTemplate="previousthumbnailicon"><i class="pi pi-angle-up"></i></ng-template>
       <ng-template pTemplate="nextthumbnailicon"><i class="pi pi-angle-down"></i></ng-template>
       <ng-template pTemplate="item" let-item>
-        <p-image [src]="item" alt="Image" styleClass="w-full" [preview]="true" />
+        <img [src]="item" alt="Image" class="max-w-full block w-30rem" />
       </ng-template>
       <ng-template pTemplate="thumbnail" let-item>
         <div class="grid grid-nogutter justify-content-center">
@@ -44,8 +44,8 @@
     </p-galleria>
 
     <div class="pt-4 product-content flex-grow-1 lg:flex-auto" data-aos="fade-up" data-aos-delay="200">
-      <p class="mb-3 text-2xl font-semibold line-height-2 w-fit">{{ product()?.title }}</p>
-      <p class="font-light text-700">{{ product()?.description }}</p>
+      <p class="mb-3 text-4xl font-semibold line-height-2 w-fit">{{ product()?.title }}</p>
+      <p class="font-light line-height-3 text-700">{{ product()?.description }}</p>
       <p class="mt-0 flex gap-1 font-medium">{{'public.brand' | translate}}: <span class="font-light text-700">{{ product()?.brand?.name }}</span></p>
       <p class="mt-0 flex gap-1 font-medium">{{'public.category' | translate}}: <span class="font-light text-700">{{ product()?.category?.name }}</span></p>
       <div class="flex align-items-center mb-3">
@@ -60,8 +60,8 @@
       <p class="font-semibold text-2xl mt-0 mb-2">{{ 'EGP ' + product()?.price }}</p>
       <span class="text-800 text-xs flex gap-2 align-items-center border-1 border-300 border-round-2xl mb-3 px-2 py-1 w-fit"><i class="pi pi-truck text-xs"></i> {{ 'product.freeDelivery' | translate }}</span>
       <div class="flex gap-2 align-items-center">
-        <p-button (onClick)="onAddToCart()" [label]="'product.addToCart' | translate" [rounded]="true" icon="pi pi-shopping-cart" />
-        <p-button [pTooltip]="'product.favorite' | translate" tooltipStyleClass="text-13px" tooltipPosition="top" [rounded]="true" icon="pi pi-heart" severity="secondary" [raised]="true" />
+        <p-button (onClick)="onAddToCart()" [loading]="addToCartLoading()" [label]="'product.addToCart' | translate" [rounded]="true" icon="pi pi-shopping-cart" />
+        <p-button (onClick)="onHandleWishlist()" [loading]="favoriteLoading()" [pTooltip]="'product.favorite' | translate" tooltipStyleClass="text-13px" tooltipPosition="top" [rounded]="true" [icon]="'pi '+ (wishlistService.isItOnMyWishlist(id())() ? 'pi-heart-fill' : 'pi-heart')" severity="danger" />
       </div>
     </div>
   }

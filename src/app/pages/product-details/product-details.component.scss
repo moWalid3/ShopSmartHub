@@ -1,15 +1,19 @@
-.product-content {
-  width: calc(100% - 25rem);
-  max-width: 100%;
-}
-
-::ng-deep {
-  .p-image {
-    width: 342px;
+:host {
+  display: block;
+  
+  .product-content {
+    width: calc(100% - 25rem);
     max-width: 100%;
-    img {
+  }
+
+  ::ng-deep {
+    .p-image {
       width: 342px;
       max-width: 100%;
+      img {
+        width: 342px;
+        max-width: 100%;
+      }
     }
   }
 }
