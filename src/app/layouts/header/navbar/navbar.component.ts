@@ -29,7 +29,7 @@ export class NavbarComponent {
     if(this.wishlistService.wishlistProductsIdAfterAction())
       return this.wishlistService.wishlistProductsIdAfterAction()!.length;
 
-    return this.wishlistService.userWishlist()?.count || 0
+    return this.wishlistService.userWishlist()?.count || '0'
   })
 
   canEnter() {

@@ -44,34 +44,11 @@
   }
 
   ::ng-deep {
-    .ar-auto-complete-input  {
-      input {
-        width: 100%;
-        border-right-color: transparent;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-      }
+    .p-autocomplete {
+      width: 100%;
     }
-    .en-auto-complete-input  {
-      input {
-        width: 100%;
-        border-left-color: transparent;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    }
-
-    .ar-categories-drop-down {
-      width: 10.5rem;
-      max-width: 100%;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    .en-categories-drop-down {
-      width: 10.5rem;
-      max-width: 100%;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
+    input {
+      width: 100%;
     }
   }
 }

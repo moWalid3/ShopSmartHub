@@ -3,6 +3,7 @@ import { LayoutsComponent } from './layouts.component';
 import { HomeComponent } from '../pages/home/home.component';
 import { TestmeComponent } from '../pages/testme/testme.component';
 import { accessControlGuard } from '../core/guards/access-control.guard';
+import { checkoutGuard } from '../core/guards/checkout.guard';
 
 export const layoutRoutes: Routes = [
   {
@@ -46,8 +47,18 @@ export const layoutRoutes: Routes = [
         canActivate: [accessControlGuard]
       },
       {
+        path: 'checkout',
+        loadComponent: () => import('../pages/checkout/checkout.component').then(m => m.CheckoutComponent),
+        canActivate: [checkoutGuard]
+      },
+      {
         path: 'wishlist',
         loadComponent: () => import('../pages/wishlist/wishlist.component').then(m => m.WishlistComponent),
+        canActivate: [accessControlGuard]
+      },
+      {
+        path: 'allorders',
+        loadComponent: () => import('../pages/orders/orders.component').then(m => m.OrdersComponent),
         canActivate: [accessControlGuard]
       },
     ]

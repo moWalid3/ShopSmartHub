@@ -1,0 +1,26 @@
+<p-breadcrumb class="max-w-full mb-5" styleClass="surface-ground" [model]="[{label: 'public.checkout' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+<div class="max-w-full w-30rem mb-6 mt-5 mx-auto">
+
+  <p class="mt-0 mb-4 text-xl font-medium">{{'checkout.checkoutNow' | translate}} :</p>
+
+  <form [formGroup]="checkoutForm">
+
+    <app-validation-field [fieldControl]="checkoutForm.controls.details" [validations]="[{name: 'required', msg: 'checkout.addressRequired'}]" [label]="{value: 'checkout.address', for: 'checkout-address'}">
+      <input formControlName="details" id="checkout-address" type="text" class="w-full ng-dirty mb-1" [class.ng-invalid]="checkoutForm.controls.details.invalid && checkoutForm.controls.details.touched" [placeholder]="'checkout.address' | translate" pInputText />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="checkoutForm.controls.phone" [validations]="[{name: 'required', msg: 'auth.phoneIsRequired'}, {name: 'pattern', msg: 'auth.enterValidEgyptianPhone'}]" [label]="{value: 'auth.phone', for: 'checkout-phone'}">
+      <input formControlName="phone" id="checkout-phone" type="tel" class="w-full ng-dirty mb-1" [class.ng-invalid]="checkoutForm.controls.phone.invalid && checkoutForm.controls.phone.touched" placeholder="01xxxxxxxxx" pInputText />
+    </app-validation-field>
+
+    <app-validation-field [fieldControl]="checkoutForm.controls.city" [validations]="[{name: 'required', msg: 'checkout.cityRequired'}]" [label]="{value: 'checkout.city', for: 'checkout-city'}">
+      <input formControlName="city" id="checkout-city" type="text" class="w-full ng-dirty mb-1" [class.ng-invalid]="checkoutForm.controls.city.invalid && checkoutForm.controls.city.touched" [placeholder]="'checkout.city' | translate" pInputText />
+    </app-validation-field>
+
+    <div class="flex justify-content-between">
+      <p-button (onClick)="onPayOnDelivery()" type="submit" [disabled]="checkoutForm.invalid" [loading]="payOnDeliveryLoading()" [label]="'checkout.payOnDelivery' | translate" icon="pi pi-truck" [rounded]="true" />
+      <p-button (onClick)="onPayOnline()" type="submit" [disabled]="checkoutForm.invalid" [loading]="payOnlineLoading()" [label]="'checkout.payOnline' | translate" icon="pi pi-credit-card" [rounded]="true" />
+    </div>
+  </form>
+</div>

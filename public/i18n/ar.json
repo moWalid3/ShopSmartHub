@@ -13,7 +13,9 @@
       "searchForProducts": "ابحث عن المنتجات...",
       "hotline": "الخط الساخن",
       "loginYour": "تسجيل الدخول",
-      "account": " إلى حسابك"
+      "logoutYour": "تسجيل الخروج من",
+      "account": " إلى حسابك",
+      "logoutSuccessful": "تم تسجيل الخروج بنجاح! نراك في المرة القادمة!"
     },
     "navbar": {
       "home": "الرئيسية",
@@ -167,10 +169,28 @@
     "addToCart": "أضف إلى السلة"
   },
 
+  "checkout": {
+    "address": "العنوان",
+    "addressRequired": "العنوان مطلوب.",
+    "city": "المدينة",
+    "cityRequired": "المدينة مطلوبة.",
+    "payOnDelivery": "الدفع عند الاستلام",
+    "payOnline": "الدفع عبر الإنترنت",
+    "checkoutNow": "ادفع الآن",
+    "orderSuccessful": "تمت عملية طلبك بنجاح!"
+  },
+
   "wishlist": {
     "productAddedToWishlist": "تمت إضافة المنتج إلى قائمة الأمنيات بنجاح!",
     "productRemovedFromWishlist": "تمت إزالة المنتج من قائمة الأمنيات بنجاح!",
     "wishlistEmpty": "قائمة الأمنيات فارغة"
+  },
+
+  "orders": {
+    "noOrdersFound": "لم يتم العثور على طلبات",
+    "order": "الطلب",
+    "createdAt": "تم الإنشاء في",
+    "totalOrderPrice": "إجمالي سعر الطلب"
   },
 
   "primeng": {
@@ -193,6 +213,7 @@
     "loginToContinue": "تحتاج إلى تسجيل الدخول للمتابعة.",
     "clearCartConfirmation": "هل أنت متأكد أنك تريد إزالة جميع المنتجات من عربة التسوق الخاصة بك؟",
     "clearCartConfirmationTitle": "تأكيد إفراغ عربة التسوق",
-    "wishlist": "قائمة الأمنيات"
+    "wishlist": "قائمة الأمنيات",
+    "checkout": "الدفع"
   }
 }

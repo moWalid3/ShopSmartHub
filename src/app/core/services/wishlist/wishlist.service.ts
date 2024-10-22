@@ -49,4 +49,9 @@ export class WishlistService {
       tap(res => this.wishlistProductsIdAfterAction.set(res.data))
     )
   }
+
+  logout() {
+    this.wishlist$.set(null);
+    this.wishlistProductsIdAfterAction.set(null);
+  }
 }

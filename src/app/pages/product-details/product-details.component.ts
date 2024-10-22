@@ -34,7 +34,7 @@ import { CartService } from '../../core/services/cart/cart.service';
     class: 'block container',
   },
 })
-export class ProductDetailsComponent {
+export class ProductDetailsComponent { //! Don't forget to handle this repeated code (here, product-card) below later
   private cartService = inject(CartService);
   private authService = inject(AuthService);
   private translate = inject(TranslateService);

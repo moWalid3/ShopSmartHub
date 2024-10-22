@@ -3,6 +3,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { ISuccessAuth, IUser } from '../../models/auth.model';
 import { tap } from 'rxjs';
 import { Router } from '@angular/router';
+import { jwtDecode } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,7 @@ export class AuthService {
   private userToken = signal('');
   isAuthenticated = computed(() => !!this.userToken());
   token = computed(() => this.userToken());
+  userId = computed(() => jwtDecode<{id: string}>(this.token())?.id || '');
 
   login(data: {email: string, password: string}) {
     return this.http.post<ISuccessAuth>('https://ecommerce.routemisr.com/api/v1/auth/signin', data).pipe(

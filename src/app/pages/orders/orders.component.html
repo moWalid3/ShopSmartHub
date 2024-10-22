@@ -1,0 +1,54 @@
+<p-breadcrumb class="max-w-full" styleClass="surface-ground mb-4" [model]="[{label: 'header.navbar.orders' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+@if (!endResponse()) { <!-- Show skeleton until getCart and getOrders response finished  -->
+  @for (item of [1, 2, 3]; track $index) {
+    <p-skeleton width="5rem" height="1.5rem" class="block mb-2" styleClass="mx-auto" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
+    <p-skeleton width="10rem" height="1.5rem" class="block mb-2" styleClass="mx-auto" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
+    <p-skeleton width="15rem" height="1.5rem" class="block mb-3" styleClass="mx-auto" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
+    <p-skeleton width="100%" height="10rem" class="block mb-6" data-aos="fade-up" [attr.data-aos-delay]="(20 * $index - 50).toString()" />
+  }
+}@else {
+
+  @if (!allOrders().length) { <!-- Empty Orders  -->
+    <div class="mb-6 text-center" data-aos="fade-up">
+      <img src="svg/empty-orders.svg" class="max-w-full w-20rem" alt="Empty Wishlist">
+      <p class="text-2xl font-semibold mt-4 mb-2 line-height-3">{{ 'orders.noOrdersFound' | translate }}</p>
+      <p-button [label]="'cart.continueShopping' | translate" routerLink="/products" [rounded]="true" />
+    </div>
+
+  }@else { <!-- Orders  -->
+    @for (order of allOrders(); track order._id) {
+
+      <div class="mb-7 text-cetner" data-aos="fade-up">
+        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.order' | translate }} :<span class="text-700 font-light">{{ $index+1 }}</span></p>
+        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.createdAt' | translate }} :<span class="text-700 font-light">{{ order.createdAt | date }}</span></p>
+        <p class="flex justify-content-center gap-1 mt-0 mb-3 text-lg font-medium text-900">{{ 'orders.totalOrderPrice' | translate }} :<span class="text-primary">EGP {{ order.totalOrderPrice }}</span></p>
+
+        <p-table [value]="order.cartItems" class="my-table" styleClass="border-1 border-primary-100 border-round"
+          [paginator]="true" [rows]="5" [rowsPerPageOptions]="[5, 10]" [tableStyle]="{'min-width': '55rem'}"
+        >
+          <ng-template pTemplate="header">
+            <tr>
+              @for (item of ['product', 'price', 'quantity', 'subTotal']; track $index) {
+                <th class="bg-primary">{{ ('cart.'+item) | translate }}</th>
+              }
+            </tr>
+          </ng-template>
+
+          <ng-template pTemplate="body" let-item>
+            <tr>
+              <td class="flex align-items-center gap-3">
+                <img [src]="item.product.imageCover" [alt]="item.product.name" class="w-3rem border-1 border-primary-200 border-round" />
+                <p>{{ item.product.title.split(' ').slice(0, 4).join(" ")}}</p>
+              </td>
+              <td class="text-700">EGP {{ item.price }}</td>
+              <td class="text-900 font-medium">{{ item.count }}</td>
+              <td class="font-medium text-900">EGP {{ item.price * item.count }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    }
+  }
+
+}

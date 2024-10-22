@@ -13,6 +13,7 @@ export class CartService {
   private cart$ = signal<ICartRes | null>(null);
 
   userCart = computed(() => this.cart$());
+  cartOwner = computed(() => this.cart$()?.data.cartOwner || '');
 
   constructor() {
     if (this.authService.isAuthenticated()) this.getCartProducts().subscribe();
@@ -61,5 +62,9 @@ export class CartService {
     .pipe(
       tap(res => this.cart$.set(null))
     );
+  }
+
+  logout() {
+    this.cart$.set(null);
   }
 }

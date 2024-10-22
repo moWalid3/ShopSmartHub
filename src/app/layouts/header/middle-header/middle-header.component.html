@@ -3,27 +3,23 @@
     <img src="logo.png" alt="Logo" class="w-3rem"> SSH
   </a>
 
-  <div class="flex">
-    <p-dropdown
-      [options]="categories"
-      [(ngModel)]="selectedCategory"
-      [showClear]="true"
-      [placeholder]="'public.categories'| translate"
-      [styleClass]="languageService.currentLanguage() === 'ar' ? 'ar-categories-drop-down' : 'en-categories-drop-down'"
-    />
-
-    <p-autoComplete
-      [(ngModel)]="country"
-      [showClear]="true"
-      [suggestions]="filteredCountries!"
-      (completeMethod)="filterCountry($event)"
-      optionLabel="name"
-      dropdownIcon="pi pi-phone"
-      [placeholder]="'header.middle.searchForProducts' | translate"
-      [class]="languageService.currentLanguage() === 'ar' ? 'ar-auto-complete-input' : 'en-auto-complete-input'"
-      styleClass="xl:w-30rem"
-    />
-  </div>
+  <p-autoComplete
+    [(ngModel)]="selectedProduct"
+    [showClear]="true"
+    [suggestions]="filteredProducts()"
+    (completeMethod)="filterProduct($event)"
+    optionLabel="title"
+    dropdownIcon="pi pi-phone"
+    [placeholder]="'header.middle.searchForProducts' | translate"
+    class="flex-grow-1 text-center mx-3"
+  >
+    <ng-template let-product pTemplate="item">
+      <div [routerLink]="['/product-details', product._id]" class="flex align-items-center gap-3 w-full">
+        <img [src]="product.imageCover" [alt]="product.title" class="w-2rem" />
+        <p class="m-0 w-10rem white-space-nowrap">{{ product.title }}</p>
+      </div>
+    </ng-template>
+  </p-autoComplete>
 
   <div class="flex-center gap-4 w-full lg:w-auto mt-2 lg:mt-0">
     <a class="icon-link icon-link-pink" href="tel:+201050747532">
@@ -34,10 +30,10 @@
       </div>
     </a>
 
-    <a class="icon-link" routerLink="/login">
-      <span class="tra-2 flex-center"><i class="pi pi-user"></i></span>
+    <a class="icon-link cursor-pointer" (click)="onChangeAuth()">
+      <span class="tra-2 flex-center"><i [class]="'pi '+(authService.isAuthenticated() ? 'pi-sign-out' : 'pi-user')" ></i></span>
       <div>
-        <span class="text-13px font-light text-500">{{ 'header.middle.loginYour' | translate }}</span>
+        <span class="text-13px font-light text-500">{{ (authService.isAuthenticated() ? 'header.middle.logoutYour' : 'header.middle.loginYour') | translate }}</span>
         <p class="mb-0 mt-1 text-sm font-bold text-900">{{ 'header.middle.account' | translate }}</p>
       </div>
     </a>

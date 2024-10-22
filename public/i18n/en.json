@@ -13,7 +13,9 @@
       "searchForProducts": "Search for products...",
       "hotline": "Hotline",
       "loginYour": "Login Your",
-      "account": "Account"
+      "logoutYour": "Logout Your",
+      "account": "Account",
+      "logoutSuccessful": "Logout successful! See you next time!"
     },
     "navbar": {
       "home": "Home",
@@ -167,10 +169,28 @@
     "addToCart": "Add To Cart"
   },
 
+  "checkout": {
+    "address": "Address",
+    "addressRequired": "Address is required.",
+    "city": "City",
+    "cityRequired": "City is required.",
+    "payOnDelivery": "Pay On Delivery",
+    "payOnline": "Pay Online",
+    "checkoutNow": "Checkout Now",
+    "orderSuccessful": "Your order is successful!"
+  },
+
   "wishlist": {
     "productAddedToWishlist": "Product added to your wishlist successfully!",
     "productRemovedFromWishlist": "Product removed from your wishlist successfully!",
     "wishlistEmpty": "Your Wishlist Is Empty"
+  },
+
+  "orders": {
+    "noOrdersFound": "No orders found",
+    "order": "Order",
+    "createdAt": "Created At",
+    "totalOrderPrice": "Total Order Price"
   },
 
   "primeng": {
@@ -193,6 +213,7 @@
     "loginToContinue": "You need to log in to continue.",
     "clearCartConfirmation": "Are you sure you want to clear all products from your cart?",
     "clearCartConfirmationTitle": "Clear Cart Confirmation",
-    "wishlist": "Wishlist"
+    "wishlist": "Wishlist",
+    "checkout": "Checkout"
   }
 }

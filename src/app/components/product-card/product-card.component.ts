@@ -31,13 +31,6 @@ export class ProductCardComponent {
   addToCartLoading = signal(false);
   favoriteLoading = signal(false);
 
-  // isItOnMyWishlist = computed(() => {
-  //   if(this.wishlistService.wishlistProductsIdAfterAction())
-  //     return this.wishlistService.wishlistProductsIdAfterAction()!.some(productId => this.product()._id === productId)
-
-  //   return this.wishlistService.userWishlist()?.data.some(prod => prod._id === this.product()._id);
-  // });
-
   onAddToCart() {
     if(!this.authService.isAuthenticated()){
       this.userNotAuthenticated();

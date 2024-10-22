@@ -1,11 +1,16 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ButtonModule } from 'primeng/button';
 import { AutoCompleteModule } from 'primeng/autocomplete';
-import { DropdownModule } from 'primeng/dropdown';
 import { LanguageService } from '../../../core/services/language/language.service';
-import { TranslateModule } from '@ngx-translate/core';
-import { RouterLink } from '@angular/router';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
+import { Router, RouterLink } from '@angular/router';
+import { AuthService } from '../../../core/services/auth/auth.service';
+import { CartService } from '../../../core/services/cart/cart.service';
+import { WishlistService } from '../../../core/services/wishlist/wishlist.service';
+import { MessageService } from 'primeng/api';
+import { IProduct } from '../../../core/models/product.model';
+import { ProductsService } from '../../../core/services/products/products.service';
 
 interface AutoCompleteCompleteEvent {
   originalEvent: Event;
@@ -19,7 +24,6 @@ interface AutoCompleteCompleteEvent {
     ButtonModule,
     FormsModule,
     AutoCompleteModule,
-    DropdownModule,
     TranslateModule,
     RouterLink
   ],
@@ -30,47 +34,40 @@ interface AutoCompleteCompleteEvent {
   },
 })
 export class MiddleHeaderComponent {
+  private translate = inject(TranslateService);
+  private messageService = inject(MessageService);
+  private router = inject(Router);
+  private cartService = inject(CartService);
+  private wishlistService = inject(WishlistService);
+  private productsService = inject(ProductsService);
+  authService = inject(AuthService);
   languageService = inject(LanguageService);
-  countries: any[] | undefined;
-  country: any;
+  products = computed(() => this.productsService.allProducts());
+  selectedProduct = signal<IProduct | null>(null)
+  filteredProducts = signal<IProduct[]>([]);
 
-  filteredCountries: any[] | undefined;
-
-  ngOnInit() {
-    this.countries = [
-      {
-        name: 'Afghanistan',
-        code: 'AF',
-      },
-      {
-        name: 'Egypt',
-        code: 'EG',
-      },
-      {
-        name: 'Yemen',
-        code: 'YE',
-      },
-      {
-        name: 'Algeria',
-        code: 'AL',
-      },
-    ];
-  }
-
-  filterCountry(event: AutoCompleteCompleteEvent) {
-    let filtered: any[] = [];
+  filterProduct(event: AutoCompleteCompleteEvent) {
+    let filtered: IProduct[] = [];
     let query = event.query;
 
-    for (let i = 0; i < (this.countries as any[]).length; i++) {
-      let country = (this.countries as any[])[i];
-      if (country.name.toLowerCase().indexOf(query.toLowerCase()) == 0) {
-        filtered.push(country);
+    for (let i = 0; i < this.products().length; i++) {
+      let product = this.products()[i];
+      if (product.title.toLowerCase().includes(query.toLowerCase())) {
+        filtered.push(product);
       }
     }
 
-    this.filteredCountries = filtered;
+    this.filteredProducts.set(filtered);
   }
 
-  categories = ['mobile', 'man', 'women'];
-  selectedCategory: any;
+  onChangeAuth() {
+    if(this.authService.isAuthenticated()) {
+      this.authService.logout();
+      this.cartService.logout();
+      this.wishlistService.logout();
+      this.messageService.add({ severity: 'success', summary: this.translate.instant('header.middle.logoutSuccessful')})
+    }
+    else
+      this.router.navigate(['/login'])
+  }
 }

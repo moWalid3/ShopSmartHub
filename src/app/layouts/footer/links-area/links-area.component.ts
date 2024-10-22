@@ -24,7 +24,7 @@ export class LinksAreaComponent {
       links: [
         {
           title: 'footer.links.yourOrders',
-          route: '/orders'
+          route: '/allorders'
         },
         {
           title: 'footer.links.yourCart',
