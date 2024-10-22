@@ -193,6 +193,39 @@
     "totalOrderPrice": "Total Order Price"
   },
 
+  "faq": {
+    "faq": "Frequently Ask & Question",
+    "chooseLaptop": "How can I choose the right laptop for my needs?",
+    "selectingLaptop": "Selecting the right laptop depends on your specific requirements. Consider factors such as intended use (work, gaming, or multimedia), processing power, storage capacity, and portability. Our knowledgeable staff can guide you based on your preferences and budget.",
+    "ledOledDifferenceQ": "What's the difference between LED and OLED TVs?",
+    "ledOledDifferenceA": "LED TVs use a backlight to illuminate pixels, while OLED TVs have pixels that emit their own light. OLED TVs generally offer deeper blacks and more vibrant colors. The choice depends on your viewing preferences and budget. We can help you understand the differences and find the perfect TV for your space.",
+    "deviceProtectionQ": "How can I protect my devices from malware and viruses?",
+    "deviceProtectionA": "Keeping your devices secure is crucial. Install reputable antivirus software, keep your operating system and applications up to date, and be cautious with email attachments and links. We offer a range of security solutions and can provide advice on best practices for maintaining a secure digital environment.",
+    "homeAudioEnhancementQ": "What's the best way to enhance home audio systems?",
+    "homeAudioEnhancementA": "Improving your home audio experience can involve upgrading speakers, investing in a soundbar, or setting up a home theater system. Consider the size of your room, your preferred audio quality, and the type of content you enjoy. Our audio experts can recommend solutions tailored to your needs.",
+    "techSupportQ": "Do you offer tech support and repair services?",
+    "techSupportA": "Yes, we provide tech support and repair services for a variety of devices. Whether you need assistance with software issues, hardware repairs, or upgrades, our skilled technicians are here to help. Contact us for information on our repair services and support options.",
+    "onlineShoppingQ": "Do you offer online shopping and home delivery services?",
+    "onlineShoppingA": "Yes, we provide convenient online shopping options, and our home delivery service allows you to order groceries from the comfort of your home. Simply browse our online store, place your order, and have it delivered to your doorstep at your preferred time.",
+    "freshProduceQ": "What measures do you take to ensure the freshness of your produce?",
+    "freshProduceA": "We prioritize the quality and freshness of our products. Our team follows stringent sourcing standards, and our produce is regularly restocked to ensure you receive the freshest fruits, vegetables, and other perishables.",
+    "dietaryOptionsQ": "Are there options for customers with dietary restrictions or preferences?",
+    "dietaryOptionsA": "Absolutely! We strive to cater to various dietary needs. Our store offers a diverse range of products, including gluten-free, organic, and vegetarian options. Look for special labels or ask our staff for assistance in finding products that meet your specific requirements.",
+    "loyaltyProgramQ": "Do you have a loyalty program or discounts for regular customers?",
+    "loyaltyProgramA": "Yes, we value our loyal customers. We offer a loyalty program where you can earn points with each purchase, and these points can be redeemed for discounts or special offers. Additionally, keep an eye out for exclusive promotions and discounts available to our regular shoppers.",
+    "provideFeedbackQ": "How can I provide feedback or suggest products for your store?",
+    "provideFeedbackA": "We welcome your feedback and suggestions! You can share your thoughts with us through our website, customer service, or suggestion boxes in the store. Your input helps us improve our services and ensures we meet the needs of our valued customers."
+  },
+
+  "contact": {
+    "getInTouch": "Get In Touch",
+    "contactUs": "Your Gateway to Excellence: Contact Us and Unlock a World of Possibilities",
+    "yourName": "Your Name",
+    "yourEmail": "Your Email",
+    "yourSubject": "Your Subject",
+    "yourMessage": "Your Message"
+  },
+
   "primeng": {
     "accept": "Yes",
     "reject": "No"

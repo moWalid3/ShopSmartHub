@@ -41,11 +41,11 @@ export class LinksAreaComponent {
       links: [
         {
           title: 'footer.links.aboutUs',
-          route: '/about'
+          route: '/faq'
         },
         {
           title: 'footer.links.faqs',
-          route: '/faqs'
+          route: '/faq'
         },
         {
           title: 'footer.links.helpAndContact',

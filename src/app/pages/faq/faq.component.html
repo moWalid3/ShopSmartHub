@@ -1,0 +1,9 @@
+<p-breadcrumb class="max-w-full mb-5" styleClass="surface-ground" [model]="[{label: 'header.top.faqs' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+<div class="content-text mx-auto mt-5 mb-6">
+  <h3 class="text-2xl pb-2 border-bottom-1 border-200 mb-5 mt-0" data-aos="fade-up">{{ 'faq.faq' | translate }}</h3>
+  @for (question of questions; track $index) {
+    <h4 class="text-900 mb-2 mt-0" data-aos="fade-up" [attr.data-aos-delay]="($index * 50)">{{ question.title | translate }}</h4>
+    <p class="mb-5 mt-0 font-normal text-700 line-height-3"  data-aos="fade-up" [attr.data-aos-delay]="$index * 50" >{{ question.ans | translate }}</p>
+  }
+</div>

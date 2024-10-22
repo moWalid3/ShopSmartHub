@@ -1,0 +1,37 @@
+<p-breadcrumb class="max-w-full mb-5" styleClass="surface-ground" [model]="[{label: 'header.top.helpAndContact' | translate}]" [home]="{icon: 'pi pi-home', routerLink: '/'}" dir="ltr" />
+
+<div class="grid gap-3 mx-auto mt-5 mb-6 p-5 align-items-center surface-section border-round border-1 border-200" data-aos="zoom-in" >
+  <div class="col-12 lg:col-5">
+    <picture class="border-round-3xl sm:h-30rem">
+      <img src="contact.png" alt="Contact Img">
+    </picture>
+  </div>
+
+  <div class="col-12 lg:col-6">
+    <h5 class="text-xl text-900 mt-0 mb-2">{{ 'contact.getInTouch' | translate }}</h5>
+    <p class="text-700 mt-0 mb-5">{{ 'contact.contactUs' | translate }}</p>
+
+    <div class="flex flex-wrap gap-3 mb-5">
+      <label for="contact-your-name" class="flex-grow-1">
+        {{ 'contact.yourName' | translate }}
+        <input type="text" id="contact-your-name" class="block w-full mt-2" pInputText />
+      </label>
+      <label for="contact-your-email" class="flex-grow-1">
+        {{ 'contact.yourEmail' | translate }}
+        <input type="email" id="contact-your-email" class="block w-full mt-2" pInputText />
+      </label>
+    </div>
+
+    <label for="contact-your-subject" class="flex-grow-1 block mb-5">
+      {{ 'contact.yourSubject' | translate }}
+      <input type="subject" id="contact-your-subject" class="block w-full mt-2" pInputText />
+    </label>
+
+    <label for="contact-your-message" class="flex-grow-1 block mb-4">
+      {{ 'contact.yourMessage' | translate }}
+      <textarea id="contact-your-message" rows="5" cols="30" class="block w-full mt-2" pInputTextarea></textarea>
+    </label>
+
+    <p-button [label]='"footer.links.submitNow" | translate' [rounded]="true" />
+  </div>
+</div>

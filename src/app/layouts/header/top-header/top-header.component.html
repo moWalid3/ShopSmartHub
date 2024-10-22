@@ -1,8 +1,7 @@
 <div class="container flex justify-content-center sm:justify-content-between align-items-center flex-wrap gap-2 py-1">
   <ul class="list-none p-0 m-0 flex gap-4 w-full md:w-auto flex justify-content-center">
-    <li><a routerLink="/" routerLinkActive="text-primary-300" [routerLinkActiveOptions]="{exact: true}" class="text-13px block nav-link py-1">{{ 'header.top.aboutUs' | translate }}</a></li>
-    <li><a routerLink="/test" routerLinkActive="text-primary-300" class="text-13px block nav-link py-1">{{ 'header.top.faqs' | translate }}</a></li>
-    <li><a routerLink="/f" routerLinkActive="text-primary-300" class="text-13px block nav-link py-1">{{ 'header.top.helpAndContact' | translate }}</a></li>
+    <li><a routerLink="/faq" routerLinkActive="text-primary-300"  [routerLinkActiveOptions]="{exact: true}" class="text-13px block nav-link py-1">{{ 'header.top.faqs' | translate }}</a></li>
+    <li><a routerLink="/contact" routerLinkActive="text-primary-300" class="text-13px block nav-link py-1">{{ 'header.top.helpAndContact' | translate }}</a></li>
   </ul>
 
   <a routerLink="/products" class="flex align-items-center gap-1 text-13px text-red-400">

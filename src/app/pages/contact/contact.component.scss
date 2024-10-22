@@ -1,0 +1,12 @@
+:host {
+  display: block;
+
+  picture {
+    display: block;
+    overflow: hidden;
+    img {
+      object-fit: contain;
+      width: 100%;
+    }
+  }
+}
