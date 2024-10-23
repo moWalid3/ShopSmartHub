@@ -64,12 +64,10 @@ export const layoutRoutes: Routes = [
       {
         path: 'faq',
         loadComponent: () => import('../pages/faq/faq.component').then(m => m.FaqComponent),
-        canActivate: [accessControlGuard]
       },
       {
         path: 'contact',
         loadComponent: () => import('../pages/contact/contact.component').then(m => m.ContactComponent),
-        canActivate: [accessControlGuard]
       },
     ]
   }

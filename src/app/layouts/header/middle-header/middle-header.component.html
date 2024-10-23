@@ -3,7 +3,7 @@
     <img src="logo.png" alt="Logo" class="w-3rem"> SSH
   </a>
 
-  <p-autoComplete
+  <p-autoComplete dir="ltr"
     [(ngModel)]="selectedProduct"
     [showClear]="true"
     [suggestions]="filteredProducts()"
@@ -11,13 +11,14 @@
     optionLabel="title"
     dropdownIcon="pi pi-phone"
     [placeholder]="'header.middle.searchForProducts' | translate"
+    (onSelect)="onSearchSelect($event)"
     class="flex-grow-1 text-center mx-3"
   >
     <ng-template let-product pTemplate="item">
-      <div [routerLink]="['/product-details', product._id]" class="flex align-items-center gap-3 w-full">
+      <a class="flex align-items-center gap-3 w-full">
         <img [src]="product.imageCover" [alt]="product.title" class="w-2rem" />
-        <p class="m-0 w-10rem white-space-nowrap">{{ product.title }}</p>
-      </div>
+        <p class="m-0 text-left w-10rem">{{ product.title }}</p>
+      </a>
     </ng-template>
   </p-autoComplete>
 

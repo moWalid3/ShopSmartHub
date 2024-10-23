@@ -60,6 +60,11 @@ export class MiddleHeaderComponent {
     this.filteredProducts.set(filtered);
   }
 
+  onSearchSelect(event: {value: IProduct}) {
+    if(event.value._id)
+      this.router.navigate(['/product-details', event.value._id]);
+  }
+
   onChangeAuth() {
     if(this.authService.isAuthenticated()) {
       this.authService.logout();

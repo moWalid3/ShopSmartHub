@@ -20,8 +20,8 @@
     @for (order of allOrders(); track order._id) {
 
       <div class="mb-7 text-cetner" data-aos="fade-up">
-        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.order' | translate }} :<span class="text-700 font-light">{{ $index+1 }}</span></p>
-        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.createdAt' | translate }} :<span class="text-700 font-light">{{ order.createdAt | date }}</span></p>
+        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.order' | translate }} :<span class="text-500 font-light">{{ $index+1 }}</span></p>
+        <p class="flex justify-content-center gap-1 mt-0 mb-2 text-lg font-medium text-900">{{ 'orders.createdAt' | translate }} :<span class="text-500 font-light">{{ order.createdAt | date }}</span></p>
         <p class="flex justify-content-center gap-1 mt-0 mb-3 text-lg font-medium text-900">{{ 'orders.totalOrderPrice' | translate }} :<span class="text-primary">EGP {{ order.totalOrderPrice }}</span></p>
 
         <p-table [value]="order.cartItems" class="my-table" styleClass="border-1 border-primary-100 border-round"
