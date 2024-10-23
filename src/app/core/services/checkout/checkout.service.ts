@@ -22,7 +22,7 @@ export class CheckoutService {
   }
 
   checkoutSessionOnline(data: {details: string, phone: string, city: string}) {
-    return this.http.post<{session: {url: string}}>(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${this.cartService.userCart()?.cartId}?url=http://localhost:4200`,
+    return this.http.post<{session: {url: string}}>(`https://ecommerce.routemisr.com/api/v1/orders/checkout-session/${this.cartService.userCart()?.cartId}?url=https://shop-smart-hub.vercel.app`,
       {shippingAddress: data},
       {headers: {token: this.authService.token()}}
     ).pipe(
