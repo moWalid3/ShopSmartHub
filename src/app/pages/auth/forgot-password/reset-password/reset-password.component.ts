@@ -8,6 +8,8 @@ import { ValidationFieldComponent } from '../../../../components/validation-fiel
 import { AuthService } from '../../../../core/services/auth/auth.service';
 import { MessageService } from 'primeng/api';
 import { PasswordModule } from 'primeng/password';
+import { WishlistService } from '../../../../core/services/wishlist/wishlist.service';
+import { CartService } from '../../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-reset-password',
@@ -25,6 +27,8 @@ import { PasswordModule } from 'primeng/password';
   styleUrl: './reset-password.component.scss'
 })
 export class ResetPasswordComponent {
+  private cartService = inject(CartService);
+  private wishlistService = inject(WishlistService);
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private authService = inject(AuthService);
@@ -43,7 +47,9 @@ export class ResetPasswordComponent {
       this.authService.resetPassword(this.resetPasswordForm.value.email!, this.resetPasswordForm.value.newPassword!).subscribe({
         next: res => {
           this.loading.set(false);
-          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.passwordChangeSuccessful') })
+          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.passwordChangeSuccessful') });
+          this.cartService.getCartProducts().subscribe();
+          this.wishlistService.getWishlistProducts().subscribe();
         },
         error: err => {
           this.loading.set(false);

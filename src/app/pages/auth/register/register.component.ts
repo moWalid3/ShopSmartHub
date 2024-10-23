@@ -12,6 +12,8 @@ import { ValidationFieldComponent } from "../../../components/validation-field/v
 import { InputMaskModule } from 'primeng/inputmask';
 import { IUser } from '../../../core/models/auth.model';
 import { MessageService } from 'primeng/api';
+import { CartService } from '../../../core/services/cart/cart.service';
+import { WishlistService } from '../../../core/services/wishlist/wishlist.service';
 
 @Component({
   selector: 'app-register',
@@ -35,6 +37,8 @@ import { MessageService } from 'primeng/api';
   },
 })
 export class RegisterComponent {
+  private cartService = inject(CartService);
+  private wishlistService = inject(WishlistService);
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private authService = inject(AuthService);
@@ -75,7 +79,9 @@ export class RegisterComponent {
       this.authService.register(user).subscribe({
         next: res => {
           this.loading.set(false);
-          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.accountCreationSuccessful')})
+          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.accountCreationSuccessful')});
+          this.cartService.getCartProducts().subscribe();
+          this.wishlistService.getWishlistProducts().subscribe();
         },
         error: err => {
           this.loading.set(false);

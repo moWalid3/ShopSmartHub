@@ -10,6 +10,8 @@ import { AuthService } from '../../../core/services/auth/auth.service';
 import { MessagesModule } from 'primeng/messages';
 import { ValidationFieldComponent } from "../../../components/validation-field/validation-field.component";
 import { MessageService } from 'primeng/api';
+import { WishlistService } from '../../../core/services/wishlist/wishlist.service';
+import { CartService } from '../../../core/services/cart/cart.service';
 
 @Component({
   selector: 'app-login',
@@ -32,6 +34,8 @@ import { MessageService } from 'primeng/api';
   },
 })
 export class LoginComponent {
+  private cartService = inject(CartService);
+  private wishlistService = inject(WishlistService);
   private translate = inject(TranslateService);
   private messageService = inject(MessageService);
   private authService = inject(AuthService);
@@ -55,7 +59,9 @@ export class LoginComponent {
       this.authService.login(data).subscribe({
         next: res => {
           this.loading.set(false);
-          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.welcomeBackLoggedIn')})
+          this.messageService.add({ severity: 'success', summary: this.translate.instant('auth.welcomeBackLoggedIn')});
+          this.cartService.getCartProducts().subscribe();
+          this.wishlistService.getWishlistProducts().subscribe();
         },
         error: err => {
           this.loading.set(false);
