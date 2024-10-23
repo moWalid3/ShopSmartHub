@@ -34,7 +34,7 @@
       <ng-template pTemplate="previousthumbnailicon"><i class="pi pi-angle-up"></i></ng-template>
       <ng-template pTemplate="nextthumbnailicon"><i class="pi pi-angle-down"></i></ng-template>
       <ng-template pTemplate="item" let-item>
-        <img [src]="item" alt="Image" class="max-w-full block w-30rem" />
+        <img [src]="item || product()?.imageCover" alt="Image" class="max-w-full block w-30rem" />
       </ng-template>
       <ng-template pTemplate="thumbnail" let-item>
         <div class="grid grid-nogutter justify-content-center">
