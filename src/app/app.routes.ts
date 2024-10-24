@@ -35,4 +35,8 @@ export const routes: Routes = [
     loadComponent: () => import('./pages/auth/register/register.component').then(m => m.RegisterComponent),
     canActivate: [authGuard]
   },
+  {
+    path: '**',
+    loadComponent: () => import('./pages/notfound/notfound.component').then(m => m.NotfoundComponent),
+  }
 ];
